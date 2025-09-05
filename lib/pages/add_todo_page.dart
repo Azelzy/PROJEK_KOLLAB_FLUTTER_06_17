@@ -37,7 +37,7 @@ class _AddTodoPageState extends State<AddTodoPage> {
             ),
             const SizedBox(height: 12),
             DropdownButtonFormField<String>(
-              value: kategori,
+              initialValue: kategori,
               decoration: const InputDecoration(labelText: "Kategori", border: OutlineInputBorder()),
               items: _kategoriList.map((e) => DropdownMenuItem(value: e, child: Text(e))).toList(),
               onChanged: (v) => setState(() => kategori = v),
