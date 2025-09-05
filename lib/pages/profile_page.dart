@@ -15,16 +15,30 @@ class ProfilePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // --- Profil Ihsan ---
             const CircleAvatar(
               radius: 60,
               backgroundImage: NetworkImage(
                 "https://yt3.googleusercontent.com/ytc/AIdro_nugqGzCgoJ4yJH_GvzHthV66mx3quWJ8niMGBF03wOcA=s160-c-k-c0x00ffffff-no-rj",
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
             const Text("Ihsan", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
             const Text("Absen: 17", style: TextStyle(fontSize: 18, color: Colors.grey)),
-            const SizedBox(height: 16),
+            const SizedBox(height: 30),
+
+            // --- Profil Azka ---
+            const CircleAvatar(
+              radius: 60,
+              backgroundImage: NetworkImage(
+                "https://avatars.githubusercontent.com/u/107330423?v=4",
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text("Azka", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+            const Text("Absen: 6", style: TextStyle(fontSize: 18, color: Colors.grey)),
+            const SizedBox(height: 30),
+
             ElevatedButton(
               onPressed: () {
                 auth.logout();
