@@ -2,7 +2,8 @@ class Todo {
   final String id;
   String judul;
   String deskripsi;
-  String kategori; // sekolah, pekerjaan, pribadi
+  String kategori; // work, personal, study
+  String tingkatKepentingan; // low, normal, high, urgent
   bool selesai;
 
   Todo({
@@ -10,6 +11,7 @@ class Todo {
     required this.judul,
     required this.deskripsi,
     required this.kategori,
+    required this.tingkatKepentingan,
     this.selesai = false,
   });
 }

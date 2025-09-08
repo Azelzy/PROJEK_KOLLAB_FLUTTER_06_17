@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_17_6/controller/auth_controller.dart';
-import 'package:project_17_6/Routes/routes.dart';
 import 'package:project_17_6/widgets/brutalist_button.dart';
 import 'package:project_17_6/widgets/brutalist_textfield.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final txtUsername = TextEditingController();
   final txtPassword = TextEditingController();
 
@@ -22,6 +21,11 @@ class _LoginPageState extends State<LoginPage> {
 
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: const Text("REGISTER"),
+        backgroundColor: Colors.black,
+        foregroundColor: Colors.white,
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(24.0),
@@ -29,32 +33,16 @@ class _LoginPageState extends State<LoginPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 40),
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
+              const Text(
+                "CREATE\nACCOUNT",
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.w900,
                   color: Colors.black,
-                  border: Border.all(color: Colors.black, width: 4),
-                ),
-                child: const Text(
-                  "BRUTALIST\nTODO APP",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 28,
-                    fontWeight: FontWeight.w900,
-                    height: 1.0,
-                  ),
+                  height: 1.0,
                 ),
               ),
               const SizedBox(height: 40),
-              const Text(
-                "LOGIN",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w900,
-                  color: Colors.black,
-                ),
-              ),
-              const SizedBox(height: 24),
               BrutalistTextField(
                 controller: txtUsername,
                 label: "USERNAME",
@@ -69,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 32),
               BrutalistButton(
-                text: "LOGIN",
+                text: "CREATE ACCOUNT",
                 onPressed: () {
                   if (txtUsername.text.isEmpty || txtPassword.text.isEmpty) {
                     Get.snackbar(
@@ -80,34 +68,25 @@ class _LoginPageState extends State<LoginPage> {
                     );
                     return;
                   }
-
-                  final success = auth.login(
-                    txtUsername.text,
-                    txtPassword.text,
-                  );
+                  
+                  final success = auth.register(txtUsername.text, txtPassword.text);
                   if (success) {
                     Get.snackbar(
                       "SUCCESS",
-                      "Login successful",
+                      "Account created successfully",
                       backgroundColor: const Color(0xFF84994F),
                       colorText: Colors.white,
                     );
-                    Get.offAllNamed(AppRoutes.base);
+                    Get.back();
                   } else {
                     Get.snackbar(
                       "ERROR",
-                      "Invalid credentials",
+                      "Username already exists",
                       backgroundColor: const Color(0xFFB45253),
                       colorText: Colors.white,
                     );
                   }
                 },
-              ),
-              const SizedBox(height: 16),
-              BrutalistButton(
-                text: "REGISTER",
-                onPressed: () => Get.toNamed(AppRoutes.register),
-                backgroundColor: Colors.grey[800]!,
               ),
             ],
           ),

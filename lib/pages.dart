@@ -4,9 +4,9 @@ import 'package:project_17_6/bindings/all_binding.dart';
 import 'package:project_17_6/pages/base_page.dart';
 import 'package:project_17_6/pages/login_page.dart';
 import 'package:project_17_6/pages/register_page.dart';
-import 'package:project_17_6/pages/todo_list_edit.dart';
 import 'package:project_17_6/pages/profile_azka_page.dart';
 import 'package:project_17_6/pages/profile_ihsan_page.dart';
+import 'package:flutter/material.dart';
 
 class AppPages {
   static final pages = <GetPage>[
@@ -26,8 +26,8 @@ class AppPages {
       binding: AllBinding(),
     ),
     GetPage(
-      name: AppRoutes.todoListEdit,
-      page: () => const TodoListEditPage(),
+      name: AppRoutes.todoEdit,
+      page: () => const TodoEditPage(),
       binding: AllBinding(),
     ),
     GetPage(
@@ -41,4 +41,16 @@ class AppPages {
       binding: AllBinding(),
     ),
   ];
+}
+
+class TodoEditPage extends StatelessWidget {
+  const TodoEditPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Todo Edit Page')),
+      body: const Center(child: Text('This is the Todo Edit Page')),
+    );
+  }
 }
