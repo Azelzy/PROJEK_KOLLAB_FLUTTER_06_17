@@ -34,7 +34,7 @@ class _RegisterPageState extends State<RegisterPage> {
             children: [
               const SizedBox(height: 40),
               const Text(
-                "CREATE\nACCOUNT",
+                "BUAT\nAKUN!",
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.w900,
@@ -46,13 +46,13 @@ class _RegisterPageState extends State<RegisterPage> {
               BrutalistTextField(
                 controller: txtUsername,
                 label: "USERNAME",
-                hint: "Enter username",
+                hint: "Masukkan username",
               ),
               const SizedBox(height: 16),
               BrutalistTextField(
                 controller: txtPassword,
                 label: "PASSWORD",
-                hint: "Enter password",
+                hint: "Masukkan password",
                 obscureText: true,
               ),
               const SizedBox(height: 32),

@@ -36,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
                   border: Border.all(color: Colors.black, width: 4),
                 ),
                 child: const Text(
-                  "BRUTALIST\nTODO APP",
+                  "PROJEKT\n6_17",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 28,
@@ -47,24 +47,26 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 40),
               const Text(
-                "LOGIN",
+                "LOGIN KUY!",
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.w900,
                   color: Colors.black,
+                  fontStyle: FontStyle.italic, // ini bikin italic
                 ),
               ),
+
               const SizedBox(height: 24),
               BrutalistTextField(
                 controller: txtUsername,
                 label: "USERNAME",
-                hint: "Enter username",
+                hint: "Masukkan namamu",
               ),
               const SizedBox(height: 16),
               BrutalistTextField(
                 controller: txtPassword,
                 label: "PASSWORD",
-                hint: "Enter password",
+                hint: "Masukkan passwordmu",
                 obscureText: true,
               ),
               const SizedBox(height: 32),
