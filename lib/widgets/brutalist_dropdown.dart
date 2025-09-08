@@ -18,7 +18,7 @@ class BrutalistDropdown extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.white, // background putih
         border: Border.all(color: Colors.black, width: 3),
         boxShadow: const [
           BoxShadow(color: Colors.black, offset: Offset(4, 4), blurRadius: 0),
@@ -28,16 +28,36 @@ class BrutalistDropdown extends StatelessWidget {
         child: DropdownButton<String>(
           value: value,
           isExpanded: true,
+          dropdownColor: Colors.white, // warna menu drop
+          iconEnabledColor: Colors.black, // warna ikon panah
+          style: const TextStyle(
+            color: Colors.black, // teks item
+            fontWeight: FontWeight.w900,
+            fontSize: 16,
+          ),
           hint: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Text(hint),
+            child: Text(
+              hint,
+              style: const TextStyle(
+                color: Colors.black54, // hint abu kehitaman
+                fontWeight: FontWeight.w700,
+              ),
+            ),
           ),
           items: items.map((String item) {
             return DropdownMenuItem<String>(
               value: item,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Text(item, style: const TextStyle(fontSize: 16)),
+                child: Text(
+                  item.toUpperCase(),
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.black,
+                  ),
+                ),
               ),
             );
           }).toList(),

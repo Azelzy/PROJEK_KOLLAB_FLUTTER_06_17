@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_17_6/Routes/pages.dart';
 import 'package:project_17_6/Routes/routes.dart';
+import 'package:project_17_6/controller/todo_controller.dart';
 
 void main() {
+  Get.put(TodoController());
   runApp(const MyApp());
 }
 

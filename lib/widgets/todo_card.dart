@@ -41,6 +41,8 @@ class TodoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textColor = _getTextColor();
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Container(
@@ -74,23 +76,29 @@ class TodoCard extends StatelessWidget {
             title: Text(
               todo.judul,
               style: TextStyle(
-                color: _getTextColor(),
+                color: textColor,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
+                decoration: todo.selesai
+                    ? TextDecoration.lineThrough
+                    : TextDecoration.none, // Coret kalau selesai
               ),
             ),
             subtitle: Text(
               "${todo.deskripsi}\n${todo.kategori.toUpperCase()} • ${todo.tingkatKepentingan.toUpperCase()}",
               style: TextStyle(
-                color: _getTextColor().withOpacity(0.8),
+                color: textColor.withOpacity(0.8),
                 height: 1.5,
+                decoration: todo.selesai
+                    ? TextDecoration.lineThrough
+                    : TextDecoration.none, // subtitle ikut coret
               ),
             ),
             isThreeLine: true,
             trailing: IconButton(
               icon: Icon(
                 Icons.delete_outline,
-                color: _getTextColor(),
+                color: textColor,
                 size: 28,
               ),
               onPressed: onDelete,
