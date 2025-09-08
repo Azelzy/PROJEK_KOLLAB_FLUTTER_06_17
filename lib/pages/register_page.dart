@@ -1,3 +1,4 @@
+// file: register_page.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_17_6/controller/auth_controller.dart';
@@ -61,12 +62,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   text: "CREATE ACCOUNT",
                   onPressed: () {
                     if (txtUsername.text.isEmpty || txtPassword.text.isEmpty) {
-                      Get.snackbar(
-                        "ERROR",
-                        "Please fill all fields",
-                        backgroundColor: const Color(0xFFB45253),
-                        colorText: Colors.white,
-                      );
+                      // Get.snackbar yang dihapus
                       return;
                     }
 
@@ -75,20 +71,10 @@ class _RegisterPageState extends State<RegisterPage> {
                       txtPassword.text,
                     );
                     if (success) {
-                      Get.snackbar(
-                        "SUCCESS",
-                        "Account created successfully",
-                        backgroundColor: const Color(0xFF84994F),
-                        colorText: Colors.white,
-                      );
+                      // Get.snackbar yang dihapus
                       Get.back();
                     } else {
-                      Get.snackbar(
-                        "ERROR",
-                        "Username already exists",
-                        backgroundColor: const Color(0xFFB45253),
-                        colorText: Colors.white,
-                      );
+                      // Get.snackbar yang dihapus
                     }
                   },
                 ),

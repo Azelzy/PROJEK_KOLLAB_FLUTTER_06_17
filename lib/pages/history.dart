@@ -1,6 +1,7 @@
+// file: history.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:project_17_6/controller/todo_controller.dart';
+import 'package:project_17_6/controller/todo_list_page_controller.dart';
 import 'package:project_17_6/widgets/todo_card.dart';
 import 'package:project_17_6/widgets/brutalist_drawer.dart';
 
@@ -41,17 +42,10 @@ class HistoryPage extends StatelessWidget {
             final todo = completedList[index];
             return Dismissible(
               key: Key(todo.id),
-              direction: DismissDirection.endToStart, // swipe kiri
+              direction: DismissDirection.endToStart,
               onDismissed: (_) {
                 todoController.toggleComplete(todo.id, false);
-                Get.snackbar(
-                  "UPDATED",
-                  "Aktivitas dikembalikan ke TODO LIST!",
-                  backgroundColor: const Color(0xFF84994F),
-                  colorText: Colors.white,
-                  snackPosition: SnackPosition.BOTTOM,
-                  margin: const EdgeInsets.all(16),
-                );
+                // Get.snackbar yang dihapus
               },
               background: Container(
                 color: Colors.orange,
@@ -65,14 +59,7 @@ class HistoryPage extends StatelessWidget {
                     todoController.toggleComplete(todo.id, value ?? false),
                 onDelete: () {
                   todoController.deleteTodo(todo.id);
-                  Get.snackbar(
-                    "DELETED",
-                    "Aktivitas berhasil dihapus!",
-                    backgroundColor: const Color(0xFFB45253),
-                    colorText: Colors.white,
-                    snackPosition: SnackPosition.BOTTOM,
-                    margin: const EdgeInsets.all(16),
-                  );
+                  // Get.snackbar yang dihapus
                 },
               ),
             );

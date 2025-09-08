@@ -1,3 +1,4 @@
+// file: login_page.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_17_6/controller/auth_controller.dart';
@@ -53,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
                   fontSize: 24,
                   fontWeight: FontWeight.w900,
                   color: Colors.black,
-                  fontStyle: FontStyle.italic, // ini bikin italic
+                  fontStyle: FontStyle.italic,
                 ),
               ),
 
@@ -75,12 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                 text: "LOGIN",
                 onPressed: () {
                   if (txtUsername.text.isEmpty || txtPassword.text.isEmpty) {
-                    Get.snackbar(
-                      "ERROR",
-                      "Please fill all fields",
-                      backgroundColor: const Color(0xFFB45253),
-                      colorText: Colors.white,
-                    );
+                    // Get.snackbar yang dihapus
                     return;
                   }
 
@@ -89,20 +85,10 @@ class _LoginPageState extends State<LoginPage> {
                     txtPassword.text,
                   );
                   if (success) {
-                    Get.snackbar(
-                      "SUCCESS",
-                      "Login successful",
-                      backgroundColor: const Color(0xFF84994F),
-                      colorText: Colors.white,
-                    );
+                    // Get.snackbar yang dihapus
                     Get.offAllNamed(AppRoutes.base);
                   } else {
-                    Get.snackbar(
-                      "ERROR",
-                      "Invalid credentials",
-                      backgroundColor: const Color(0xFFB45253),
-                      colorText: Colors.white,
-                    );
+                    // Get.snackbar yang dihapus
                   }
                 },
               ),

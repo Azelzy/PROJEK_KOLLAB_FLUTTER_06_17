@@ -1,6 +1,7 @@
+// file: todo_list_edit.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:project_17_6/controller/todo_controller.dart';
+import 'package:project_17_6/controller/todo_list_page_controller.dart';
 import 'package:project_17_6/widgets/brutalist_button.dart';
 import 'package:project_17_6/widgets/brutalist_textfield.dart';
 import 'package:project_17_6/widgets/brutalist_dropdown.dart';
@@ -60,7 +61,6 @@ class _TodoListEditPageState extends State<TodoListEditPage> {
         foregroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
-        // ✅ cukup 1 scroll view
         padding: const EdgeInsets.all(24.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -118,14 +118,7 @@ class _TodoListEditPageState extends State<TodoListEditPage> {
                     txtDeskripsi.text.isEmpty ||
                     kategori == null ||
                     tingkatKepentingan == null) {
-                  Get.snackbar(
-                    "ERROR",
-                    "All fields are required",
-                    backgroundColor: const Color(0xFFB45253),
-                    colorText: Colors.white,
-                    snackPosition: SnackPosition.BOTTOM,
-                    margin: const EdgeInsets.all(16),
-                  );
+                  // Get.snackbar yang dihapus
                   return;
                 }
 
@@ -139,7 +132,7 @@ class _TodoListEditPageState extends State<TodoListEditPage> {
                   );
                   Get.back(
                     result: "updated",
-                  ); // ✅ kirim hasil ke halaman sebelumnya
+                  );
                 } else {
                   controller.addTodo(
                     judul: txtJudul.text,
@@ -149,9 +142,8 @@ class _TodoListEditPageState extends State<TodoListEditPage> {
                   );
                   Get.back(
                     result: "added",
-                  ); // ✅ kirim hasil ke halaman sebelumnya
+                  );
                 }
-                // ✅ balik ke BasePage (TodoList & History)
                 Get.offAllNamed(AppRoutes.base);
               },
             ),

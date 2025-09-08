@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_17_6/Routes/pages.dart';
 import 'package:project_17_6/Routes/routes.dart';
-import 'package:project_17_6/controller/todo_controller.dart';
+import 'package:project_17_6/controller/auth_controller.dart';
+import 'package:project_17_6/controller/todo_list_page_controller.dart';
 
 void main() {
   Get.put(TodoController());
+  Get.put(AuthController());
   runApp(const MyApp());
 }
 
@@ -16,6 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Project 17-6',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.light,
         primaryColor: Colors.black,
@@ -29,7 +32,7 @@ class MyApp extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.black,
             foregroundColor: Colors.white,
-            shape: RoundedRectangleBorder(
+            shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.zero,
               side: BorderSide(color: Colors.black, width: 3),
             ),
@@ -37,7 +40,7 @@ class MyApp extends StatelessWidget {
             elevation: 4,
           ),
         ),
-        inputDecorationTheme: InputDecorationTheme(
+        inputDecorationTheme: const InputDecorationTheme(
           filled: true,
           fillColor: Colors.white,
           border: OutlineInputBorder(
@@ -54,13 +57,13 @@ class MyApp extends StatelessWidget {
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.zero,
-            borderSide: BorderSide(color: const Color(0xFFB45253), width: 3),
+            borderSide: BorderSide(color: Color(0xFFB45253), width: 3),
           ),
           focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.zero,
-            borderSide: BorderSide(color: const Color(0xFFB45253), width: 3),
+            borderSide: BorderSide(color: Color(0xFFB45253), width: 3),
           ),
-          contentPadding: const EdgeInsets.symmetric(
+          contentPadding: EdgeInsets.symmetric(
             horizontal: 16,
             vertical: 12,
           ),
@@ -69,23 +72,17 @@ class MyApp extends StatelessWidget {
           fillColor: MaterialStateProperty.all(Colors.black),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(4),
-            side: BorderSide(color: Colors.black, width: 2),
+            side: const BorderSide(color: Colors.black, width: 2),
           ),
         ),
-        cardTheme: CardThemeData(
+        cardTheme: const CardThemeData(
           color: Colors.white,
           elevation: 4,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.zero,
             side: BorderSide(color: Colors.black, width: 3),
           ),
-          margin: const EdgeInsets.only(bottom: 16),
-        ),
-        snackBarTheme: const SnackBarThemeData(
-          backgroundColor: Color(0xFF84994F),
-          contentTextStyle: TextStyle(color: Colors.white),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
-          behavior: SnackBarBehavior.floating,
+          margin: EdgeInsets.only(bottom: 16),
         ),
       ),
       initialRoute: AppRoutes.login,
