@@ -179,7 +179,7 @@ class TodoCard extends StatelessWidget {
                                               onTap: () => Navigator.pop(context),
                                               child: const Center(
                                                 child: Text(
-                                                  "TIDAK",
+                                                  "EH GJDI",
                                                   style: TextStyle(
                                                     color: Colors.black,
                                                     fontSize: 16,
@@ -217,7 +217,7 @@ class TodoCard extends StatelessWidget {
                                               },
                                               child: const Center(
                                                 child: Text(
-                                                  "YA",
+                                                  "YA!",
                                                   style: TextStyle(
                                                     color: Colors.black,
                                                     fontSize: 16,

@@ -48,7 +48,7 @@ class AuthController extends GetxController {
       if (user["username"] == username) {
         Get.snackbar(
           "ERROR",
-          "Username sudah digunakan",
+          "Username sudah pernah digunakan",
           backgroundColor: const Color(0xFFB45253),
           colorText: Colors.white,
           snackPosition: SnackPosition.BOTTOM,
@@ -65,7 +65,7 @@ class AuthController extends GetxController {
     Future.delayed(const Duration(milliseconds: 300), () {
       Get.snackbar(
         "SUCCESS",
-        "Akun berhasil dibuat! Silakan login",
+        "Akun berhasil dibuat! Silahkan login",
         backgroundColor: const Color(0xFF84994F),
         colorText: Colors.white,
         snackPosition: SnackPosition.BOTTOM,
@@ -91,7 +91,7 @@ class AuthController extends GetxController {
   void showEmptyFieldsError() {
     Get.snackbar(
       "ERROR",
-      "Semua field harus diisi",
+      "Semua isian harus diisi",
       backgroundColor: const Color(0xFFB45253),
       colorText: Colors.white,
       snackPosition: SnackPosition.BOTTOM,

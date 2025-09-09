@@ -77,7 +77,7 @@ class BrutalistDrawer extends StatelessWidget {
                                     padding: const EdgeInsets.all(20),
                                     color: Colors.black,
                                     child: const Text(
-                                      "LOGOUT CONFIRMATION",
+                                      "KONFIRMASI LOGOUT",
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 18,
@@ -90,7 +90,7 @@ class BrutalistDrawer extends StatelessWidget {
                                   Padding(
                                     padding: const EdgeInsets.all(24),
                                     child: const Text(
-                                      "ARE YOU SURE YOU WANT TO LOGOUT?",
+                                      "YKIN INGIN KELUAR?",
                                       style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 16,
@@ -126,7 +126,7 @@ class BrutalistDrawer extends StatelessWidget {
                                                 },
                                                 child: const Center(
                                                   child: Text(
-                                                    "NO",
+                                                    "GA JADI",
                                                     style: TextStyle(
                                                       color: Colors.black,
                                                       fontSize: 16,
@@ -161,7 +161,7 @@ class BrutalistDrawer extends StatelessWidget {
                                                 },
                                                 child: const Center(
                                                   child: Text(
-                                                    "YES",
+                                                    "YA!",
                                                     style: TextStyle(
                                                       color: Colors.black,
                                                       fontSize: 16,

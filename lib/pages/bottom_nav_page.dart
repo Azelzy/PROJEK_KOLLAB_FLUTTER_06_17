@@ -40,7 +40,7 @@ class BasePage extends StatelessWidget {
             Expanded(
               child: Obx(
                 () => BrutalistButton(
-                  text: "HISTORY",
+                  text: "COMPLETED TODO",
                   onPressed: () => controller.changePage(1),
                   backgroundColor: controller.currentIndex.value == 1
                       ? Colors.black

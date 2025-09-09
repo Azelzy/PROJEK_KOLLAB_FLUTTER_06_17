@@ -25,7 +25,7 @@ class TodoListPage extends StatelessWidget {
         if (activeList.isEmpty) {
           return const Center(
             child: Text(
-              "NO ACTIVE TASKS",
+              "BELUM ADA TUGAS",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w900,
