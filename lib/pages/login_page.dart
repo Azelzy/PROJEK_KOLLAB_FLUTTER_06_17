@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:project_17_6/controller/auth_controller.dart';
 import 'package:project_17_6/Routes/routes.dart';
 import 'package:project_17_6/widgets/brutalist_button.dart';
-import 'package:project_17_6/widgets/brutalist_passwordfield.dart';
+import 'package:project_17_6/widgets/brutalist_passwordeyebutton.dart';
 import 'package:project_17_6/widgets/brutalist_textfield.dart';
 
 class LoginPage extends StatefulWidget {
@@ -63,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
                 BrutalistTextField(
                   label: "USERNAME",
                   controller: txtUsername,
-                  hint: "Masukkan username",
+                  hint: "Enter your username",
                 ),
 
                 const SizedBox(height: 16),
@@ -71,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                 // PASSWORD field
                 BrutalistPasswordField(
                   controller: txtPassword,
-                  hint: "Masukkan passwordmu",
+                  hint: "Enter your password",
                 ),
 
                 const SizedBox(height: 32),
