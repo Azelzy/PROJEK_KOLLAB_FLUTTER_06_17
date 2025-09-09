@@ -51,43 +51,146 @@ class BrutalistDrawer extends StatelessWidget {
                     text: "LOGOUT",
                     backgroundColor: Colors.red,
                     onPressed: () {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text("Logout Confirmation"),
-          content: const Text("Are you sure you want to logout?"),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop(false); // User chose "No"
-              },
-              child: const Text("No"),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop(true); // User chose "Yes"
-              },
-              child: const Text("Yes"),
-            ),
-          ],
-        );
-      },
-    ).then((value) {
-      // Handle the result
-      if (value != null && value) {
-        // User confirmed logout - perform logout action
-        auth.logout(); // Call your logout method
-        Get.offAllNamed(AppRoutes.login); // Navigate to login page
-        print('User logged out');
-      } else {
-        // User cancelled or chose No
-        print('Logout cancelled');
-      }
-    });
-  },
-  //child: const Text("Logout"),
-
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Dialog(
+                            backgroundColor: Colors.transparent,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(color: Colors.black, width: 4),
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: Colors.black,
+                                    offset: Offset(8, 8),
+                                    blurRadius: 0,
+                                  ),
+                                ],
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  // Header
+                                  Container(
+                                    width: double.infinity,
+                                    padding: const EdgeInsets.all(20),
+                                    color: Colors.black,
+                                    child: const Text(
+                                      "LOGOUT CONFIRMATION",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                  // Content
+                                  Padding(
+                                    padding: const EdgeInsets.all(24),
+                                    child: const Text(
+                                      "ARE YOU SURE YOU WANT TO LOGOUT?",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                  // Buttons
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+                                    child: Row(
+                                      children: [
+                                        Expanded(
+                                          child: Container(
+                                            height: 50,
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              border: Border.all(color: Colors.black, width: 3),
+                                              boxShadow: const [
+                                                BoxShadow(
+                                                  color: Colors.black,
+                                                  offset: Offset(4, 4),
+                                                  blurRadius: 0,
+                                                ),
+                                              ],
+                                            ),
+                                            child: Material(
+                                              color: Colors.transparent,
+                                              child: InkWell(
+                                                onTap: () {
+                                                  Navigator.of(context).pop(false);
+                                                },
+                                                child: const Center(
+                                                  child: Text(
+                                                    "NO",
+                                                    style: TextStyle(
+                                                      color: Colors.black,
+                                                      fontSize: 16,
+                                                      fontWeight: FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(width: 16),
+                                        Expanded(
+                                          child: Container(
+                                            height: 50,
+                                            decoration: BoxDecoration(
+                                              color: Colors.black,
+                                              border: Border.all(color: Colors.black, width: 3),
+                                              boxShadow: const [
+                                                BoxShadow(
+                                                  color: Colors.black,
+                                                  offset: Offset(4, 4),
+                                                  blurRadius: 0,
+                                                ),
+                                              ],
+                                            ),
+                                            child: Material(
+                                              color: Colors.transparent,
+                                              child: InkWell(
+                                                onTap: () {
+                                                  Navigator.of(context).pop(true);
+                                                },
+                                                child: const Center(
+                                                  child: Text(
+                                                    "YES",
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 16,
+                                                      fontWeight: FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ).then((value) {
+                        if (value != null && value) {
+                          auth.logout();
+                          Get.offAllNamed(AppRoutes.login);
+                          print('User logged out');
+                        } else {
+                          print('Logout cancelled');
+                        }
+                      });
+                    },
                   ),
                 ],
               ),

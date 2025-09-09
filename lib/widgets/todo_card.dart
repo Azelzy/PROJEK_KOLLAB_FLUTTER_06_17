@@ -109,26 +109,132 @@ class TodoCard extends StatelessWidget {
                   ? () {
                       showDialog(
                         context: context,
-                        builder: (context) => AlertDialog(
-                          title: const Text("Konfirmasi"),
-                          content: const Text(
-                            "Yakin ingin menghapus todo ini?",
+                        builder: (context) => Dialog(
+                          backgroundColor: Colors.transparent,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border.all(color: Colors.black, width: 4),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Colors.black,
+                                  offset: Offset(8, 8),
+                                  blurRadius: 0,
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                // Header
+                                Container(
+                                  width: double.infinity,
+                                  padding: const EdgeInsets.all(20),
+                                  color: Colors.black,
+                                  child: const Text(
+                                    "KONFIRMASI",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                                // Content
+                                Padding(
+                                  padding: const EdgeInsets.all(24),
+                                  child: const Text(
+                                    "YAKIN INGIN MENGHAPUS TODO INI?",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                                // Buttons
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        child: Container(
+                                          height: 50,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            border: Border.all(color: Colors.black, width: 3),
+                                            boxShadow: const [
+                                              BoxShadow(
+                                                color: Colors.black,
+                                                offset: Offset(4, 4),
+                                                blurRadius: 0,
+                                              ),
+                                            ],
+                                          ),
+                                          child: Material(
+                                            color: Colors.transparent,
+                                            child: InkWell(
+                                              onTap: () => Navigator.pop(context),
+                                              child: const Center(
+                                                child: Text(
+                                                  "TIDAK",
+                                                  style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(width: 16),
+                                      Expanded(
+                                        child: Container(
+                                          height: 50,
+                                          decoration: BoxDecoration(
+                                            color: Colors.black,
+                                            border: Border.all(color: Colors.black, width: 3),
+                                            boxShadow: const [
+                                              BoxShadow(
+                                                color: Colors.black,
+                                                offset: Offset(4, 4),
+                                                blurRadius: 0,
+                                              ),
+                                            ],
+                                          ),
+                                          child: Material(
+                                            color: Colors.transparent,
+                                            child: InkWell(
+                                              onTap: () {
+                                                Navigator.pop(context);
+                                                if (onDelete != null) {
+                                                  onDelete!();
+                                                }
+                                              },
+                                              child: const Center(
+                                                child: Text(
+                                                  "YA",
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                          actions: [
-                            TextButton(
-                              onPressed: () => Navigator.pop(context), // batal
-                              child: const Text("Tidak"),
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.pop(context); // tutup dialog
-                                if (onDelete != null) {
-                                  onDelete!(); // panggil delete
-                                }
-                              },
-                              child: const Text("Ya"),
-                            ),
-                          ],
                         ),
                       );
                     }
