@@ -48,7 +48,44 @@ class BrutalistDrawer extends StatelessWidget {
                   BrutalistButton(
                     text: "LOGOUT",
                     backgroundColor: Colors.red,
-                    onPressed: () => auth.logout(),
+                    onPressed: () {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("Logout Confirmation"),
+          content: const Text("Are you sure you want to logout?"),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(false); // User chose "No"
+              },
+              child: const Text("No"),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(true); // User chose "Yes"
+              },
+              child: const Text("Yes"),
+            ),
+          ],
+        );
+      },
+    ).then((value) {
+      // Handle the result
+      if (value != null && value) {
+        // User confirmed logout - perform logout action
+        auth.logout(); // Call your logout method
+        Get.offAllNamed(AppRoutes.login); // Navigate to login page
+        print('User logged out');
+      } else {
+        // User cancelled or chose No
+        print('Logout cancelled');
+      }
+    });
+  },
+  //child: const Text("Logout"),
+
                   ),
                 ],
               ),
