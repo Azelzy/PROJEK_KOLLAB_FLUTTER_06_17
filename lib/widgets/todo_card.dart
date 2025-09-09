@@ -105,7 +105,34 @@ class TodoCard extends StatelessWidget {
                 color: textColor,
                 size: 28,
               ),
-              onPressed: isHistoryPage ? onDelete : onEdit,
+              onPressed: isHistoryPage
+                  ? () {
+                      showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          title: const Text("Konfirmasi"),
+                          content: const Text(
+                            "Yakin ingin menghapus todo ini?",
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.pop(context), // batal
+                              child: const Text("Tidak"),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context); // tutup dialog
+                                if (onDelete != null) {
+                                  onDelete!(); // panggil delete
+                                }
+                              },
+                              child: const Text("Ya"),
+                            ),
+                          ],
+                        ),
+                      );
+                    }
+                  : onEdit,
             ),
           ),
         ),

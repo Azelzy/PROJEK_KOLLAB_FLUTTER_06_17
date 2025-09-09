@@ -46,7 +46,7 @@ class ProfileAzkaPage extends StatelessWidget {
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(24.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
