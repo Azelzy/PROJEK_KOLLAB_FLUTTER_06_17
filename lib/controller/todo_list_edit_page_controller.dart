@@ -85,7 +85,7 @@ class TodoListEditPageController extends GetxController {
       Get.offAllNamed(AppRoutes.base);
       Get.snackbar(
         "SUCCESS",
-        "Todo updated successfully",
+        "Todo updated successfully(„• ֊ •„)੭",
         backgroundColor: const Color(0xFF84994F).withOpacity(0.9),
         colorText: Colors.white,
         snackPosition: SnackPosition.BOTTOM,
@@ -111,7 +111,7 @@ class TodoListEditPageController extends GetxController {
       Get.offAllNamed(AppRoutes.base);
       Get.snackbar(
         "SUCCESS",
-        "Todo added successfully",
+        "Todo added successfully(„• ֊ •„)੭",
         backgroundColor: const Color(0xFF84994F).withOpacity(0.9),
         colorText: Colors.white,
         snackPosition: SnackPosition.BOTTOM,

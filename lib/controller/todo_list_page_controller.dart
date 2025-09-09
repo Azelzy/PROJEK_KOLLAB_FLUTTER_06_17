@@ -52,7 +52,7 @@ class TodoController extends GetxController {
       if (value) {
         Get.snackbar(
           "COMPLETED",
-          "\"${todo.judul}\" has been completed",
+          "\"${todo.judul}\" has been completed(„• ֊ •„)੭",
           backgroundColor: const Color(0xFF84994F).withOpacity(0.9),
           colorText: Colors.white,
           snackPosition: SnackPosition.BOTTOM,
@@ -71,7 +71,7 @@ class TodoController extends GetxController {
       } else {
         Get.snackbar(
           "RESTORED",
-          "\"${todo.judul}\" restored to active todos",
+          "\"${todo.judul}\" restored to active todos(„• ֊ •„)੭",
           backgroundColor: const Color(0xFFFCB53B).withOpacity(0.9),
           colorText: Colors.white,
           snackPosition: SnackPosition.BOTTOM,
@@ -97,7 +97,7 @@ class TodoController extends GetxController {
     
     Get.snackbar(
       "DELETED",
-      "\"${todo.judul}\" has been deleted",
+      "\"${todo.judul}\" has been deleted.·°՞(っ-ᯅ-ς)՞°·.",
       backgroundColor: const Color(0xFFB45253).withOpacity(0.9),
       colorText: Colors.white,
       snackPosition: SnackPosition.BOTTOM,

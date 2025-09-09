@@ -20,7 +20,7 @@ class AuthController extends GetxController {
         Future.delayed(const Duration(milliseconds: 500), () {
           Get.snackbar(
             "SUCCESS",
-            "Login successful! Welcome $username",
+            "Login successful! Welcome $username ٩(ˊᗜˋ*)و",
             backgroundColor: const Color(0xFF84994F).withOpacity(0.9),
             colorText: Colors.white,
             snackPosition: SnackPosition.BOTTOM,
@@ -43,7 +43,7 @@ class AuthController extends GetxController {
     // Show error snackbar immediately
     Get.snackbar(
       "ERROR",
-      "Username or password is incorrect",
+      "Username or password is incorrect(¬`‸´¬)",
       backgroundColor: const Color(0xFFB45253).withOpacity(0.9),
       colorText: Colors.white,
       snackPosition: SnackPosition.BOTTOM,
@@ -68,7 +68,7 @@ class AuthController extends GetxController {
       if (user["username"] == username) {
         Get.snackbar(
           "ERROR",
-          "Username already taken",
+          "Username already taken(¬`‸´¬)",
           backgroundColor: const Color(0xFFB45253).withOpacity(0.9),
           colorText: Colors.white,
           snackPosition: SnackPosition.BOTTOM,
@@ -92,7 +92,7 @@ class AuthController extends GetxController {
 
     Get.snackbar(
       "SUCCESS",
-      "Account created successfully! Please login",
+      "Account created successfully! Please login٩(ˊᗜˋ*)و",
       backgroundColor: const Color(0xFF84994F).withOpacity(0.9),
       colorText: Colors.white,
       snackPosition: SnackPosition.BOTTOM,
@@ -116,7 +116,7 @@ class AuthController extends GetxController {
     Get.offAllNamed(AppRoutes.login);
     Get.snackbar(
       "LOGOUT",
-      "You have been logged out",
+      "You have been logged out٩(ˊᗜˋ*)و",
       backgroundColor: const Color(0xFF84994F).withOpacity(0.9),
       colorText: Colors.white,
       snackPosition: SnackPosition.BOTTOM,
@@ -137,7 +137,7 @@ class AuthController extends GetxController {
   void showEmptyFieldsError() {
     Get.snackbar(
       "ERROR",
-      "All fields must be filled",
+      "All fields must be filled(¬`‸´¬)",
       backgroundColor: const Color(0xFFB45253).withOpacity(0.9),
       colorText: Colors.white,
       snackPosition: SnackPosition.BOTTOM,

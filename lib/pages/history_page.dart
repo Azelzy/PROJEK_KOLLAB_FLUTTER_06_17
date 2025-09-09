@@ -24,7 +24,7 @@ class HistoryPage extends StatelessWidget {
         if (completedList.isEmpty) {
           return const Center(
             child: Text(
-              "NO COMPLETED TASKS YET",
+              "NO COMPLETED TASKS YET(つ╥﹏╥)つ",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w900,
