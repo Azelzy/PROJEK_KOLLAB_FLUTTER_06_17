@@ -65,7 +65,6 @@ lib/
 
 ## 📱 Screenshots
 
-*(Tambahkan screenshot aplikasi di sini)*
 
 ## 🚀 Instalasi
 
@@ -79,8 +78,8 @@ lib/
 
 1. **Clone repository**
 ```bash
-git clone https://github.com/username/projekt-6-17-flutter-todo.git
-cd projekt-6-17-flutter-todo
+git clone https://github.com/Azelzy/PROJEK_KOLLAB_FLUTTER_06_17.git
+cd project_17_6
 ```
 
 2. **Install dependencies**
