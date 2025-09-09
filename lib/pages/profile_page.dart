@@ -39,13 +39,48 @@ class ProfilePage extends StatelessWidget {
             const Text("Absen: 6", style: TextStyle(fontSize: 18, color: Colors.grey)),
             const SizedBox(height: 30),
 
-            ElevatedButton(
+            //Logout Button Popup Exit
+            //Logout Button with Yes/No Confirmation
+ElevatedButton(
+  onPressed: () {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("Logout Confirmation"),
+          content: const Text("Are you sure you want to logout?"),
+          actions: <Widget>[
+            TextButton(
               onPressed: () {
-                auth.logout();
-                Get.offAllNamed(AppRoutes.login);
+                Navigator.of(context).pop(false); // User chose "No"
               },
-              child: const Text("Logout"),
-            )
+              child: const Text("No"),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(true); // User chose "Yes"
+              },
+              child: const Text("Yes"),
+            ),
+          ],
+        );
+      },
+    ).then((value) {
+      // Handle the result
+      if (value != null && value) {
+        // User confirmed logout - perform logout action
+        auth.logout(); // Call your logout method
+        Get.offAllNamed(AppRoutes.login); // Navigate to login page
+        print('User logged out');
+      } else {
+        // User cancelled or chose No
+        print('Logout cancelled');
+      }
+    });
+  },
+  child: const Text("Logout"),
+)
+            //until this
           ],
         ),
       ),
