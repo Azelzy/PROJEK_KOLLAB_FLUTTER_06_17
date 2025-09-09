@@ -52,20 +52,40 @@ class TodoController extends GetxController {
       if (value) {
         Get.snackbar(
           "COMPLETED",
-          "\"${todo.judul}\" telah diselesaikan",
-          backgroundColor: const Color(0xFF84994F),
+          "\"${todo.judul}\" has been completed",
+          backgroundColor: const Color(0xFF84994F).withOpacity(0.9),
           colorText: Colors.white,
           snackPosition: SnackPosition.BOTTOM,
           margin: const EdgeInsets.all(16),
+          borderRadius: 0,
+          borderWidth: 3,
+          borderColor: Colors.black,
+          boxShadows: [
+            const BoxShadow(
+              color: Colors.black,
+              offset: Offset(4, 4),
+              blurRadius: 0,
+            ),
+          ],
         );
       } else {
         Get.snackbar(
           "RESTORED",
-          "\"${todo.judul}\" dipulihkan ke todo aktif",
-          backgroundColor: const Color(0xFFFCB53B),
+          "\"${todo.judul}\" restored to active todos",
+          backgroundColor: const Color(0xFFFCB53B).withOpacity(0.9),
           colorText: Colors.white,
           snackPosition: SnackPosition.BOTTOM,
           margin: const EdgeInsets.all(16),
+          borderRadius: 0,
+          borderWidth: 3,
+          borderColor: Colors.black,
+          boxShadows: [
+            const BoxShadow(
+              color: Colors.black,
+              offset: Offset(4, 4),
+              blurRadius: 0,
+            ),
+          ],
         );
       }
     }
@@ -77,11 +97,21 @@ class TodoController extends GetxController {
     
     Get.snackbar(
       "DELETED",
-      "\"${todo.judul}\" telah dihapus",
-      backgroundColor: const Color(0xFFB45253),
+      "\"${todo.judul}\" has been deleted",
+      backgroundColor: const Color(0xFFB45253).withOpacity(0.9),
       colorText: Colors.white,
       snackPosition: SnackPosition.BOTTOM,
       margin: const EdgeInsets.all(16),
+      borderRadius: 0,
+      borderWidth: 3,
+      borderColor: Colors.black,
+      boxShadows: [
+        const BoxShadow(
+          color: Colors.black,
+          offset: Offset(4, 4),
+          blurRadius: 0,
+        ),
+      ],
     );
   }
 

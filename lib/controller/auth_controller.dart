@@ -20,11 +20,21 @@ class AuthController extends GetxController {
         Future.delayed(const Duration(milliseconds: 500), () {
           Get.snackbar(
             "SUCCESS",
-            "Login berhasil! Selamat datang $username",
-            backgroundColor: const Color(0xFF84994F),
+            "Login successful! Welcome $username",
+            backgroundColor: const Color(0xFF84994F).withOpacity(0.9),
             colorText: Colors.white,
             snackPosition: SnackPosition.BOTTOM,
             margin: const EdgeInsets.all(16),
+            borderRadius: 0,
+            borderWidth: 3,
+            borderColor: Colors.black,
+            boxShadows: [
+              const BoxShadow(
+                color: Colors.black,
+                offset: Offset(4, 4),
+                blurRadius: 0,
+              ),
+            ],
           );
         });
         return true;
@@ -33,26 +43,46 @@ class AuthController extends GetxController {
     // Show error snackbar immediately
     Get.snackbar(
       "ERROR",
-      "Username atau password salah",
-      backgroundColor: const Color(0xFFB45253),
+      "Username or password is incorrect",
+      backgroundColor: const Color(0xFFB45253).withOpacity(0.9),
       colorText: Colors.white,
       snackPosition: SnackPosition.BOTTOM,
       margin: const EdgeInsets.all(16),
+      borderRadius: 0,
+      borderWidth: 3,
+      borderColor: Colors.black,
+      boxShadows: [
+        const BoxShadow(
+          color: Colors.black,
+          offset: Offset(4, 4),
+          blurRadius: 0,
+        ),
+      ],
     );
     return false;
   }
 
   bool register(String username, String password) {
-    // Cek apakah username sudah ada
+    // Check if username already exists
     for (var user in users) {
       if (user["username"] == username) {
         Get.snackbar(
           "ERROR",
-          "Username sudah pernah digunakan",
-          backgroundColor: const Color(0xFFB45253),
+          "Username already taken",
+          backgroundColor: const Color(0xFFB45253).withOpacity(0.9),
           colorText: Colors.white,
           snackPosition: SnackPosition.BOTTOM,
           margin: const EdgeInsets.all(16),
+          borderRadius: 0,
+          borderWidth: 3,
+          borderColor: Colors.black,
+          boxShadows: [
+            const BoxShadow(
+              color: Colors.black,
+              offset: Offset(4, 4),
+              blurRadius: 0,
+            ),
+          ],
         );
         return false;
       }
@@ -62,11 +92,21 @@ class AuthController extends GetxController {
 
     Get.snackbar(
       "SUCCESS",
-      "Akun berhasil dibuat! Silahkan login",
-      backgroundColor: const Color(0xFF84994F),
+      "Account created successfully! Please login",
+      backgroundColor: const Color(0xFF84994F).withOpacity(0.9),
       colorText: Colors.white,
       snackPosition: SnackPosition.BOTTOM,
       margin: const EdgeInsets.all(16),
+      borderRadius: 0,
+      borderWidth: 3,
+      borderColor: Colors.black,
+      boxShadows: [
+        const BoxShadow(
+          color: Colors.black,
+          offset: Offset(4, 4),
+          blurRadius: 0,
+        ),
+      ],
     );
     return true;
   }
@@ -76,22 +116,42 @@ class AuthController extends GetxController {
     Get.offAllNamed(AppRoutes.login);
     Get.snackbar(
       "LOGOUT",
-      "Anda telah logout",
-      backgroundColor: const Color(0xFF84994F),
+      "You have been logged out",
+      backgroundColor: const Color(0xFF84994F).withOpacity(0.9),
       colorText: Colors.white,
       snackPosition: SnackPosition.BOTTOM,
       margin: const EdgeInsets.all(16),
+      borderRadius: 0,
+      borderWidth: 3,
+      borderColor: Colors.black,
+      boxShadows: [
+        const BoxShadow(
+          color: Colors.black,
+          offset: Offset(4, 4),
+          blurRadius: 0,
+        ),
+      ],
     );
   }
 
   void showEmptyFieldsError() {
     Get.snackbar(
       "ERROR",
-      "Semua isian harus diisi",
-      backgroundColor: const Color(0xFFB45253),
+      "All fields must be filled",
+      backgroundColor: const Color(0xFFB45253).withOpacity(0.9),
       colorText: Colors.white,
       snackPosition: SnackPosition.BOTTOM,
       margin: const EdgeInsets.all(16),
+      borderRadius: 0,
+      borderWidth: 3,
+      borderColor: Colors.black,
+      boxShadows: [
+        const BoxShadow(
+          color: Colors.black,
+          offset: Offset(4, 4),
+          blurRadius: 0,
+        ),
+      ],
     );
   }
 }

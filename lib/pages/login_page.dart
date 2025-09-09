@@ -49,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 40),
                 const Text(
-                  "LOGIN KUY!",
+                  "いこう!",
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.w900,

@@ -20,35 +20,29 @@ class TodoListEditPage extends StatelessWidget {
         foregroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(24.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              "TITLE",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-            ),
-            const SizedBox(height: 8),
             BrutalistTextField(
               controller: controller.txtJudul,
               hint: "Enter todo title",
-              label: '',
+              label: 'TITLE',
             ),
-            const SizedBox(height: 24),
-            const Text(
-              "DESCRIPTION",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-            ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 12),
             BrutalistTextField(
               controller: controller.txtDeskripsi,
-              hint: "Enter todo description",
-              label: '',
+              hint: "Enter todo description", 
+              label: 'DESCRIPTION',
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 12),
             const Text(
               "CATEGORY",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w900,
+                color: Colors.black,
+              ),
             ),
             const SizedBox(height: 8),
             Obx(() => BrutalistDropdown(
@@ -57,10 +51,14 @@ class TodoListEditPage extends StatelessWidget {
               hint: "Select category",
               onChanged: controller.updateKategori,
             )),
-            const SizedBox(height: 24),
+            const SizedBox(height: 12),
             const Text(
               "PRIORITY",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w900,
+                color: Colors.black,
+              ),
             ),
             const SizedBox(height: 8),
             Obx(() => BrutalistDropdown(
@@ -69,7 +67,7 @@ class TodoListEditPage extends StatelessWidget {
               hint: "Select priority",
               onChanged: controller.updateTingkatKepentingan,
             )),
-            const SizedBox(height: 40),
+            const SizedBox(height: 24),
             Obx(() => BrutalistButton(
               text: controller.isEditing.value ? "SAVE CHANGES" : "ADD TODO",
               onPressed: controller.saveTodo,

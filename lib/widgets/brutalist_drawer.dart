@@ -23,7 +23,7 @@ class BrutalistDrawer extends StatelessWidget {
             color: Colors.black,
             child: const SafeArea(
               child: Text(
-                "ANGGOTA KELOMPOK",
+                "GROUP MEMBERS",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
@@ -84,7 +84,7 @@ class BrutalistDrawer extends StatelessWidget {
                                     padding: const EdgeInsets.all(20),
                                     color: Colors.black,
                                     child: const Text(
-                                      "KONFIRMASI LOGOUT",
+                                      "ATTENTION!",
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 18,
@@ -97,7 +97,7 @@ class BrutalistDrawer extends StatelessWidget {
                                   Padding(
                                     padding: const EdgeInsets.all(24),
                                     child: const Text(
-                                      "YKIN INGIN KELUAR?",
+                                      "ARE YOU SURE WANT TO LOGOUT TWIN? ૮(˶╥︿╥)ა",
                                       style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 16,
@@ -143,7 +143,7 @@ class BrutalistDrawer extends StatelessWidget {
                                                 },
                                                 child: const Center(
                                                   child: Text(
-                                                    "GA JADI",
+                                                    "やめた!",
                                                     style: TextStyle(
                                                       color: Colors.black,
                                                       fontSize: 16,
@@ -184,7 +184,7 @@ class BrutalistDrawer extends StatelessWidget {
                                                 },
                                                 child: const Center(
                                                   child: Text(
-                                                    "YA!",
+                                                    "はい!",
                                                     style: TextStyle(
                                                       color: Colors.black,
                                                       fontSize: 16,

@@ -36,7 +36,7 @@ class _RegisterPageState extends State<RegisterPage> {
               children: [
                 const SizedBox(height: 40),
                 const Text(
-                  "BUAT\nAKUN!",
+                  "CREATE\nan ACCOUNT!",
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.w900,
@@ -48,13 +48,13 @@ class _RegisterPageState extends State<RegisterPage> {
                 BrutalistTextField(
                   controller: txtUsername,
                   label: "USERNAME",
-                  hint: "Masukkan username",
+                  hint: "Enter username",
                 ),
                 const SizedBox(height: 16),
                 BrutalistTextField(
                   controller: txtPassword,
                   label: "PASSWORD",
-                  hint: "Masukkan password",
+                  hint: "Enter password",
                   obscureText: true,
                 ),
                 const SizedBox(height: 32),
@@ -72,10 +72,10 @@ class _RegisterPageState extends State<RegisterPage> {
                     );
 
                     if (success) {
-                      // Kalau berhasil register, baru pindah ke login
+                      // If registration successful, go to login
                       Get.offNamed(AppRoutes.login);
                     }
-                    // Kalau gagal (username sudah ada), tetap di RegisterPage
+                    // If failed (username already exists), stay on RegisterPage
                   },
                 ),
               ],

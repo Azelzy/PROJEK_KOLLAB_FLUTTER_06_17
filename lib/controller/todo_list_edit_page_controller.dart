@@ -53,11 +53,21 @@ class TodoListEditPageController extends GetxController {
         tingkatKepentingan.value == null) {
       Get.snackbar(
         "ERROR",
-        "Semua field harus diisi",
-        backgroundColor: const Color(0xFFB45253),
+        "All fields must be filled",
+        backgroundColor: const Color(0xFFB45253).withOpacity(0.9),
         colorText: Colors.white,
         snackPosition: SnackPosition.BOTTOM,
         margin: const EdgeInsets.all(16),
+        borderRadius: 0,
+        borderWidth: 3,
+        borderColor: Colors.black,
+        boxShadows: [
+          const BoxShadow(
+            color: Colors.black,
+            offset: Offset(4, 4),
+            blurRadius: 0,
+          ),
+        ],
       );
       return;
     }
@@ -75,11 +85,21 @@ class TodoListEditPageController extends GetxController {
       Get.offAllNamed(AppRoutes.base);
       Get.snackbar(
         "SUCCESS",
-        "Todo berhasil diupdate",
-        backgroundColor: const Color(0xFF84994F),
+        "Todo updated successfully",
+        backgroundColor: const Color(0xFF84994F).withOpacity(0.9),
         colorText: Colors.white,
         snackPosition: SnackPosition.BOTTOM,
         margin: const EdgeInsets.all(16),
+        borderRadius: 0,
+        borderWidth: 3,
+        borderColor: Colors.black,
+        boxShadows: [
+          const BoxShadow(
+            color: Colors.black,
+            offset: Offset(4, 4),
+            blurRadius: 0,
+          ),
+        ],
       );
     } else {
       controller.addTodo(
@@ -91,11 +111,21 @@ class TodoListEditPageController extends GetxController {
       Get.offAllNamed(AppRoutes.base);
       Get.snackbar(
         "SUCCESS",
-        "Todo berhasil ditambahkan",
-        backgroundColor: const Color(0xFF84994F),
+        "Todo added successfully",
+        backgroundColor: const Color(0xFF84994F).withOpacity(0.9),
         colorText: Colors.white,
         snackPosition: SnackPosition.BOTTOM,
         margin: const EdgeInsets.all(16),
+        borderRadius: 0,
+        borderWidth: 3,
+        borderColor: Colors.black,
+        boxShadows: [
+          const BoxShadow(
+            color: Colors.black,
+            offset: Offset(4, 4),
+            blurRadius: 0,
+          ),
+        ],
       );
     }
   }

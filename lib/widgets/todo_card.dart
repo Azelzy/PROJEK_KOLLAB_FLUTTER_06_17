@@ -132,7 +132,7 @@ class TodoCard extends StatelessWidget {
                                   padding: const EdgeInsets.all(20),
                                   color: Colors.black,
                                   child: const Text(
-                                    "KONFIRMASI",
+                                    "ATTENTION!",
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 18,
@@ -145,7 +145,7 @@ class TodoCard extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.all(24),
                                   child: const Text(
-                                    "YAKIN INGIN MENGHAPUS TODO INI?",
+                                    "ARE YOU SURE WANT TO DELET TS?(っᗒ︿ᗕς)",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 16,
@@ -179,7 +179,7 @@ class TodoCard extends StatelessWidget {
                                               onTap: () => Navigator.pop(context),
                                               child: const Center(
                                                 child: Text(
-                                                  "EH GJDI",
+                                                  "やめた!",
                                                   style: TextStyle(
                                                     color: Colors.black,
                                                     fontSize: 16,
@@ -217,7 +217,7 @@ class TodoCard extends StatelessWidget {
                                               },
                                               child: const Center(
                                                 child: Text(
-                                                  "YA!",
+                                                  "はい!",
                                                   style: TextStyle(
                                                     color: Colors.black,
                                                     fontSize: 16,
