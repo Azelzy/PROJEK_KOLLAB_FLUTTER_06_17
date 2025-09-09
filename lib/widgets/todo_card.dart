@@ -163,7 +163,7 @@ class TodoCard extends StatelessWidget {
                                         child: Container(
                                           height: 50,
                                           decoration: BoxDecoration(
-                                            color: Colors.white,
+                                            color: Color(0xFFB45253),
                                             border: Border.all(color: Colors.black, width: 3),
                                             boxShadow: const [
                                               BoxShadow(
@@ -196,7 +196,7 @@ class TodoCard extends StatelessWidget {
                                         child: Container(
                                           height: 50,
                                           decoration: BoxDecoration(
-                                            color: Colors.black,
+                                            color: Color(0xFF84994F),
                                             border: Border.all(color: Colors.black, width: 3),
                                             boxShadow: const [
                                               BoxShadow(
@@ -219,7 +219,7 @@ class TodoCard extends StatelessWidget {
                                                 child: Text(
                                                   "YA",
                                                   style: TextStyle(
-                                                    color: Colors.white,
+                                                    color: Colors.black,
                                                     fontSize: 16,
                                                     fontWeight: FontWeight.bold,
                                                   ),

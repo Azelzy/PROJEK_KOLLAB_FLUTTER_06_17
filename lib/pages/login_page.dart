@@ -15,6 +15,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final txtUsername = TextEditingController();
   final txtPassword = TextEditingController();
+  bool _isPasswordVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -63,12 +64,102 @@ class _LoginPageState extends State<LoginPage> {
                   hint: "Masukkan namamu",
                 ),
                 const SizedBox(height: 16),
-                BrutalistTextField(
-                  controller: txtPassword,
-                  label: "PASSWORD",
-                  hint: "Masukkan passwordmu",
-                  obscureText: true,
+
+                // Password field with custom show/hide button
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "PASSWORD",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w900,
+                        color: Colors.black,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Colors.black, width: 3),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.black,
+                            offset: Offset(4, 4),
+                            blurRadius: 0,
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: TextField(
+                              controller: txtPassword,
+                              obscureText: !_isPasswordVisible,
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.black,
+                              ),
+                              decoration: const InputDecoration(
+                                hintText: "Masukkan passwordmu",
+                                hintStyle: TextStyle(
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                                border: InputBorder.none,
+                                contentPadding: EdgeInsets.symmetric(
+                                  horizontal: 16,
+                                  vertical: 16,
+                                ),
+                              ),
+                            ),
+                          ),
+
+                          // Brutalist show/hide password button
+                          Container(
+                            margin: const EdgeInsets.all(4),
+                            height: 48,
+                            width: 48,
+                            decoration: BoxDecoration(
+                              color: _isPasswordVisible
+                                  ? Colors.black
+                                  : Colors.white,
+                              border: Border.all(color: Colors.black, width: 2),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Colors.black,
+                                  offset: Offset(2, 2),
+                                  blurRadius: 0,
+                                ),
+                              ],
+                            ),
+                            child: Material(
+                              color: Colors.transparent,
+                              child: InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    _isPasswordVisible = !_isPasswordVisible;
+                                  });
+                                },
+                                child: Icon(
+                                  _isPasswordVisible
+                                      ? Icons.visibility_off
+                                      : Icons.visibility,
+                                  color: _isPasswordVisible
+                                      ? Colors.white
+                                      : Colors.black,
+                                  size: 20,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
+
                 const SizedBox(height: 32),
                 BrutalistButton(
                   text: "LOGIN",

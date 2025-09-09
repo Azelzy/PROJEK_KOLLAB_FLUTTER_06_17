@@ -59,7 +59,7 @@ class AuthController extends GetxController {
     }
 
     users.add({"username": username, "password": password});
-    
+
     // Navigate back to login and show success snackbar
     Get.back();
     Future.delayed(const Duration(milliseconds: 300), () {
