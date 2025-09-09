@@ -39,12 +39,16 @@ class BrutalistDrawer extends StatelessWidget {
                 children: [
                   BrutalistButton(
                     text: "AZKA EL FACHRIZY",
+                    textColor: Colors.black,
                     onPressed: () => Get.toNamed(AppRoutes.profileAzka),
+                    backgroundColor: const Color(0xFFFAA533),
                   ),
                   const SizedBox(height: 16),
                   BrutalistButton(
                     text: "IHSAN H.U",
+                    textColor: Colors.black,
                     onPressed: () => Get.toNamed(AppRoutes.profileIhsan),
+                    backgroundColor: const Color(0xFF0BA6DF),
                   ),
                   const Spacer(),
                   BrutalistButton(
@@ -59,7 +63,10 @@ class BrutalistDrawer extends StatelessWidget {
                             child: Container(
                               decoration: BoxDecoration(
                                 color: Colors.white,
-                                border: Border.all(color: Colors.black, width: 4),
+                                border: Border.all(
+                                  color: Colors.black,
+                                  width: 4,
+                                ),
                                 boxShadow: const [
                                   BoxShadow(
                                     color: Colors.black,
@@ -101,7 +108,12 @@ class BrutalistDrawer extends StatelessWidget {
                                   ),
                                   // Buttons
                                   Padding(
-                                    padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+                                    padding: const EdgeInsets.fromLTRB(
+                                      24,
+                                      0,
+                                      24,
+                                      24,
+                                    ),
                                     child: Row(
                                       children: [
                                         Expanded(
@@ -109,7 +121,10 @@ class BrutalistDrawer extends StatelessWidget {
                                             height: 50,
                                             decoration: BoxDecoration(
                                               color: Color(0xFFB45253),
-                                              border: Border.all(color: Colors.black, width: 3),
+                                              border: Border.all(
+                                                color: Colors.black,
+                                                width: 3,
+                                              ),
                                               boxShadow: const [
                                                 BoxShadow(
                                                   color: Colors.black,
@@ -122,7 +137,9 @@ class BrutalistDrawer extends StatelessWidget {
                                               color: Colors.transparent,
                                               child: InkWell(
                                                 onTap: () {
-                                                  Navigator.of(context).pop(false);
+                                                  Navigator.of(
+                                                    context,
+                                                  ).pop(false);
                                                 },
                                                 child: const Center(
                                                   child: Text(
@@ -130,7 +147,8 @@ class BrutalistDrawer extends StatelessWidget {
                                                     style: TextStyle(
                                                       color: Colors.black,
                                                       fontSize: 16,
-                                                      fontWeight: FontWeight.bold,
+                                                      fontWeight:
+                                                          FontWeight.bold,
                                                     ),
                                                   ),
                                                 ),
@@ -144,7 +162,10 @@ class BrutalistDrawer extends StatelessWidget {
                                             height: 50,
                                             decoration: BoxDecoration(
                                               color: Color(0xFF84994F),
-                                              border: Border.all(color: Colors.black, width: 3),
+                                              border: Border.all(
+                                                color: Colors.black,
+                                                width: 3,
+                                              ),
                                               boxShadow: const [
                                                 BoxShadow(
                                                   color: Colors.black,
@@ -157,7 +178,9 @@ class BrutalistDrawer extends StatelessWidget {
                                               color: Colors.transparent,
                                               child: InkWell(
                                                 onTap: () {
-                                                  Navigator.of(context).pop(true);
+                                                  Navigator.of(
+                                                    context,
+                                                  ).pop(true);
                                                 },
                                                 child: const Center(
                                                   child: Text(
@@ -165,7 +188,8 @@ class BrutalistDrawer extends StatelessWidget {
                                                     style: TextStyle(
                                                       color: Colors.black,
                                                       fontSize: 16,
-                                                      fontWeight: FontWeight.bold,
+                                                      fontWeight:
+                                                          FontWeight.bold,
                                                     ),
                                                   ),
                                                 ),
