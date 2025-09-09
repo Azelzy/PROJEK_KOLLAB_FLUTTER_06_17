@@ -43,7 +43,7 @@ class AuthController extends GetxController {
   }
 
   bool register(String username, String password) {
-    // Check if username already exists
+    // Cek apakah username sudah ada
     for (var user in users) {
       if (user["username"] == username) {
         Get.snackbar(
@@ -60,18 +60,14 @@ class AuthController extends GetxController {
 
     users.add({"username": username, "password": password});
 
-    // Navigate back to login and show success snackbar
-    Get.back();
-    Future.delayed(const Duration(milliseconds: 300), () {
-      Get.snackbar(
-        "SUCCESS",
-        "Akun berhasil dibuat! Silahkan login",
-        backgroundColor: const Color(0xFF84994F),
-        colorText: Colors.white,
-        snackPosition: SnackPosition.BOTTOM,
-        margin: const EdgeInsets.all(16),
-      );
-    });
+    Get.snackbar(
+      "SUCCESS",
+      "Akun berhasil dibuat! Silahkan login",
+      backgroundColor: const Color(0xFF84994F),
+      colorText: Colors.white,
+      snackPosition: SnackPosition.BOTTOM,
+      margin: const EdgeInsets.all(16),
+    );
     return true;
   }
 

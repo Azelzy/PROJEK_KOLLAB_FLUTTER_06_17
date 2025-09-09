@@ -66,8 +66,16 @@ class _RegisterPageState extends State<RegisterPage> {
                       return;
                     }
 
-                    auth.register(txtUsername.text, txtPassword.text);
-                    Get.offNamed(AppRoutes.login); 
+                    bool success = auth.register(
+                      txtUsername.text,
+                      txtPassword.text,
+                    );
+
+                    if (success) {
+                      // Kalau berhasil register, baru pindah ke login
+                      Get.offNamed(AppRoutes.login);
+                    }
+                    // Kalau gagal (username sudah ada), tetap di RegisterPage
                   },
                 ),
               ],
