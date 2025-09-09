@@ -1,6 +1,6 @@
-// file: register_page.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:project_17_6/Routes/routes.dart';
 import 'package:project_17_6/controller/auth_controller.dart';
 import 'package:project_17_6/widgets/brutalist_button.dart';
 import 'package:project_17_6/widgets/brutalist_textfield.dart';
@@ -62,20 +62,12 @@ class _RegisterPageState extends State<RegisterPage> {
                   text: "CREATE ACCOUNT",
                   onPressed: () {
                     if (txtUsername.text.isEmpty || txtPassword.text.isEmpty) {
-                      // Get.snackbar yang dihapus
+                      auth.showEmptyFieldsError();
                       return;
                     }
 
-                    final success = auth.register(
-                      txtUsername.text,
-                      txtPassword.text,
-                    );
-                    if (success) {
-                      // Get.snackbar yang dihapus
-                      Get.back();
-                    } else {
-                      // Get.snackbar yang dihapus
-                    }
+                    auth.register(txtUsername.text, txtPassword.text);
+                    Get.offNamed(AppRoutes.login); 
                   },
                 ),
               ],
@@ -84,5 +76,12 @@ class _RegisterPageState extends State<RegisterPage> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    txtUsername.dispose();
+    txtPassword.dispose();
+    super.dispose();
   }
 }

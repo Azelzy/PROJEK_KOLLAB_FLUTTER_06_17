@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_17_6/Routes/routes.dart';
 
@@ -15,9 +16,29 @@ class AuthController extends GetxController {
       if (user["username"] == username && user["password"] == password) {
         isLoggedIn.value = true;
         Get.offAllNamed(AppRoutes.base);
+        // Show success snackbar after navigation
+        Future.delayed(const Duration(milliseconds: 500), () {
+          Get.snackbar(
+            "SUCCESS",
+            "Login berhasil! Selamat datang $username",
+            backgroundColor: const Color(0xFF84994F),
+            colorText: Colors.white,
+            snackPosition: SnackPosition.BOTTOM,
+            margin: const EdgeInsets.all(16),
+          );
+        });
         return true;
       }
     }
+    // Show error snackbar immediately
+    Get.snackbar(
+      "ERROR",
+      "Username atau password salah",
+      backgroundColor: const Color(0xFFB45253),
+      colorText: Colors.white,
+      snackPosition: SnackPosition.BOTTOM,
+      margin: const EdgeInsets.all(16),
+    );
     return false;
   }
 
@@ -25,16 +46,56 @@ class AuthController extends GetxController {
     // Check if username already exists
     for (var user in users) {
       if (user["username"] == username) {
-        return false; // Username already exists
+        Get.snackbar(
+          "ERROR",
+          "Username sudah digunakan",
+          backgroundColor: const Color(0xFFB45253),
+          colorText: Colors.white,
+          snackPosition: SnackPosition.BOTTOM,
+          margin: const EdgeInsets.all(16),
+        );
+        return false;
       }
     }
 
     users.add({"username": username, "password": password});
+    
+    // Navigate back to login and show success snackbar
+    Get.back();
+    Future.delayed(const Duration(milliseconds: 300), () {
+      Get.snackbar(
+        "SUCCESS",
+        "Akun berhasil dibuat! Silakan login",
+        backgroundColor: const Color(0xFF84994F),
+        colorText: Colors.white,
+        snackPosition: SnackPosition.BOTTOM,
+        margin: const EdgeInsets.all(16),
+      );
+    });
     return true;
   }
 
   void logout() {
     isLoggedIn.value = false;
     Get.offAllNamed(AppRoutes.login);
+    Get.snackbar(
+      "LOGOUT",
+      "Anda telah logout",
+      backgroundColor: const Color(0xFF84994F),
+      colorText: Colors.white,
+      snackPosition: SnackPosition.BOTTOM,
+      margin: const EdgeInsets.all(16),
+    );
+  }
+
+  void showEmptyFieldsError() {
+    Get.snackbar(
+      "ERROR",
+      "Semua field harus diisi",
+      backgroundColor: const Color(0xFFB45253),
+      colorText: Colors.white,
+      snackPosition: SnackPosition.BOTTOM,
+      margin: const EdgeInsets.all(16),
+    );
   }
 }

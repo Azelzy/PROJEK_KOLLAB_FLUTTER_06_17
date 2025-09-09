@@ -4,13 +4,17 @@ import 'package:project_17_6/models/todo_model.dart';
 class TodoCard extends StatelessWidget {
   final Todo todo;
   final ValueChanged<bool?>? onChanged;
-  final VoidCallback onDelete;
+  final VoidCallback? onDelete;
+  final VoidCallback? onEdit;
+  final bool isHistoryPage;
 
   const TodoCard({
     super.key,
     required this.todo,
     required this.onChanged,
-    required this.onDelete,
+    this.onDelete,
+    this.onEdit,
+    required this.isHistoryPage,
   });
 
   Color _getPriorityColor() {
@@ -81,7 +85,7 @@ class TodoCard extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 decoration: todo.selesai
                     ? TextDecoration.lineThrough
-                    : TextDecoration.none, // Coret kalau selesai
+                    : TextDecoration.none,
               ),
             ),
             subtitle: Text(
@@ -91,17 +95,17 @@ class TodoCard extends StatelessWidget {
                 height: 1.5,
                 decoration: todo.selesai
                     ? TextDecoration.lineThrough
-                    : TextDecoration.none, // subtitle ikut coret
+                    : TextDecoration.none,
               ),
             ),
             isThreeLine: true,
             trailing: IconButton(
               icon: Icon(
-                Icons.delete_outline,
+                isHistoryPage ? Icons.delete_outline : Icons.edit_outlined,
                 color: textColor,
                 size: 28,
               ),
-              onPressed: onDelete,
+              onPressed: isHistoryPage ? onDelete : onEdit,
             ),
           ),
         ),

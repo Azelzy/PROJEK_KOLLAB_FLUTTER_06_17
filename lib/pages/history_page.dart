@@ -1,4 +1,3 @@
-// file: history.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_17_6/controller/todo_list_page_controller.dart';
@@ -45,7 +44,6 @@ class HistoryPage extends StatelessWidget {
               direction: DismissDirection.endToStart,
               onDismissed: (_) {
                 todoController.toggleComplete(todo.id, false);
-                // Get.snackbar yang dihapus
               },
               background: Container(
                 color: Colors.orange,
@@ -57,10 +55,8 @@ class HistoryPage extends StatelessWidget {
                 todo: todo,
                 onChanged: (value) =>
                     todoController.toggleComplete(todo.id, value ?? false),
-                onDelete: () {
-                  todoController.deleteTodo(todo.id);
-                  // Get.snackbar yang dihapus
-                },
+                onDelete: () => todoController.deleteTodo(todo.id),
+                isHistoryPage: true,
               ),
             );
           },

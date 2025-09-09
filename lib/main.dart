@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Project 17-6',
-      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.light,
         primaryColor: Colors.black,
@@ -87,6 +86,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: AppRoutes.login,
       getPages: AppPages.pages,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

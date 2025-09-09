@@ -1,4 +1,3 @@
-// file: login_page.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_17_6/controller/auth_controller.dart';
@@ -27,82 +26,78 @@ class _LoginPageState extends State<LoginPage> {
         child: Padding(
           padding: const EdgeInsets.all(24.0),
           child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 40),
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  border: Border.all(color: Colors.black, width: 4),
-                ),
-                child: const Text(
-                  "PROJEKT\n6_17",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 28,
-                    fontWeight: FontWeight.w900,
-                    height: 1.0,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 40),
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    border: Border.all(color: Colors.black, width: 4),
+                  ),
+                  child: const Text(
+                    "PROJEKT\n6_17",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 28,
+                      fontWeight: FontWeight.w900,
+                      height: 1.0,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 40),
-              const Text(
-                "LOGIN KUY!",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w900,
-                  color: Colors.black,
-                  fontStyle: FontStyle.italic,
+                const SizedBox(height: 40),
+                const Text(
+                  "LOGIN KUY!",
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.black,
+                    fontStyle: FontStyle.italic,
+                  ),
                 ),
-              ),
-
-              const SizedBox(height: 24),
-              BrutalistTextField(
-                controller: txtUsername,
-                label: "USERNAME",
-                hint: "Masukkan namamu",
-              ),
-              const SizedBox(height: 16),
-              BrutalistTextField(
-                controller: txtPassword,
-                label: "PASSWORD",
-                hint: "Masukkan passwordmu",
-                obscureText: true,
-              ),
-              const SizedBox(height: 32),
-              BrutalistButton(
-                text: "LOGIN",
-                onPressed: () {
-                  if (txtUsername.text.isEmpty || txtPassword.text.isEmpty) {
-                    // Get.snackbar yang dihapus
-                    return;
-                  }
-
-                  final success = auth.login(
-                    txtUsername.text,
-                    txtPassword.text,
-                  );
-                  if (success) {
-                    // Get.snackbar yang dihapus
-                    Get.offAllNamed(AppRoutes.base);
-                  } else {
-                    // Get.snackbar yang dihapus
-                  }
-                },
-              ),
-              const SizedBox(height: 16),
-              BrutalistButton(
-                text: "REGISTER",
-                onPressed: () => Get.toNamed(AppRoutes.register),
-                backgroundColor: Colors.grey[800]!,
-              ),
-            ],
+                const SizedBox(height: 24),
+                BrutalistTextField(
+                  controller: txtUsername,
+                  label: "USERNAME",
+                  hint: "Masukkan namamu",
+                ),
+                const SizedBox(height: 16),
+                BrutalistTextField(
+                  controller: txtPassword,
+                  label: "PASSWORD",
+                  hint: "Masukkan passwordmu",
+                  obscureText: true,
+                ),
+                const SizedBox(height: 32),
+                BrutalistButton(
+                  text: "LOGIN",
+                  onPressed: () {
+                    if (txtUsername.text.isEmpty || txtPassword.text.isEmpty) {
+                      auth.showEmptyFieldsError();
+                      return;
+                    }
+                    auth.login(txtUsername.text, txtPassword.text);
+                  },
+                ),
+                const SizedBox(height: 16),
+                BrutalistButton(
+                  text: "REGISTER",
+                  onPressed: () => Get.toNamed(AppRoutes.register),
+                  backgroundColor: Colors.grey[800]!,
+                ),
+              ],
+            ),
           ),
         ),
       ),
-      )
     );
+  }
+
+  @override
+  void dispose() {
+    txtUsername.dispose();
+    txtPassword.dispose();
+    super.dispose();
   }
 }

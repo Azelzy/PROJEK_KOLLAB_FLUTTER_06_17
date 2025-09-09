@@ -1,4 +1,3 @@
-// file: todo_list.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_17_6/controller/todo_list_page_controller.dart';
@@ -46,7 +45,6 @@ class TodoListPage extends StatelessWidget {
               direction: DismissDirection.startToEnd,
               onDismissed: (_) {
                 todoController.toggleComplete(todo.id, true);
-                // Get.snackbar yang dihapus
               },
               background: Container(
                 color: Colors.green,
@@ -58,10 +56,8 @@ class TodoListPage extends StatelessWidget {
                 todo: todo,
                 onChanged: (value) =>
                     todoController.toggleComplete(todo.id, value ?? false),
-                onDelete: () {
-                  todoController.deleteTodo(todo.id);
-                  // Get.snackbar yang dihapus
-                },
+                onEdit: () => Get.toNamed(AppRoutes.todoListEdit, arguments: todo.id),
+                isHistoryPage: false,
               ),
             );
           },
@@ -76,14 +72,7 @@ class TodoListPage extends StatelessWidget {
           ],
         ),
         child: IconButton(
-          onPressed: () async {
-            final result = await Get.toNamed(AppRoutes.todoListEdit);
-            if (result == "added") {
-              // Get.snackbar yang dihapus
-            } else if (result == "updated") {
-              // Get.snackbar yang dihapus
-            }
-          },
+          onPressed: () => Get.toNamed(AppRoutes.todoListEdit),
           icon: const Icon(Icons.add, color: Colors.white),
           iconSize: 32,
         ),

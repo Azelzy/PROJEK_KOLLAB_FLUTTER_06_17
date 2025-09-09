@@ -48,18 +48,7 @@ class BrutalistDrawer extends StatelessWidget {
                   BrutalistButton(
                     text: "LOGOUT",
                     backgroundColor: Colors.red,
-                    onPressed: () {
-                      auth.logout();
-                      Get.offAllNamed(AppRoutes.login);
-                      Get.snackbar(
-                        "LOGOUT",
-                        "Anda telah logout",
-                        backgroundColor: const Color(0xFF84994F),
-                        colorText: Colors.white,
-                        snackPosition: SnackPosition.BOTTOM,
-                        margin: const EdgeInsets.all(16),
-                      );
-                    },
+                    onPressed: () => auth.logout(),
                   ),
                 ],
               ),

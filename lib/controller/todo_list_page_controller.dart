@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_17_6/models/todo_model.dart';
 import 'package:uuid/uuid.dart';
@@ -44,13 +45,44 @@ class TodoController extends GetxController {
   void toggleComplete(String id, bool value) {
     final index = todos.indexWhere((todo) => todo.id == id);
     if (index != -1) {
+      final todo = todos[index];
       todos[index].selesai = value;
       todos.refresh();
+      
+      if (value) {
+        Get.snackbar(
+          "COMPLETED",
+          "\"${todo.judul}\" telah diselesaikan",
+          backgroundColor: const Color(0xFF84994F),
+          colorText: Colors.white,
+          snackPosition: SnackPosition.BOTTOM,
+          margin: const EdgeInsets.all(16),
+        );
+      } else {
+        Get.snackbar(
+          "RESTORED",
+          "\"${todo.judul}\" dipulihkan ke todo aktif",
+          backgroundColor: const Color(0xFFFCB53B),
+          colorText: Colors.white,
+          snackPosition: SnackPosition.BOTTOM,
+          margin: const EdgeInsets.all(16),
+        );
+      }
     }
   }
 
   void deleteTodo(String id) {
+    final todo = todos.firstWhere((t) => t.id == id);
     todos.removeWhere((todo) => todo.id == id);
+    
+    Get.snackbar(
+      "DELETED",
+      "\"${todo.judul}\" telah dihapus",
+      backgroundColor: const Color(0xFFB45253),
+      colorText: Colors.white,
+      snackPosition: SnackPosition.BOTTOM,
+      margin: const EdgeInsets.all(16),
+    );
   }
 
   Todo? getTodoById(String id) {
