@@ -53,7 +53,7 @@ class TodoListEditPageController extends GetxController {
         tingkatKepentingan.value == null) {
       Get.snackbar(
         "ERROR",
-        "All fields must be filled",
+        "All fields must be filled (｡•̀ ⤙ •́ ｡ꐦ) !!!",
         backgroundColor: const Color(0xFFB45253).withOpacity(0.9),
         colorText: Colors.white,
         snackPosition: SnackPosition.BOTTOM,
