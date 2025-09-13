@@ -156,7 +156,5 @@ dev_dependencies:
 ---
 
 <div align="center">
-<strong>🚀 Built with ❤️ by XI PPLG 1 Students</strong>
-<br>
-<em>Neo-Brutalism meets Modern Flutter Development</em>
+<strong> ありがとう ございます ♡ᰔ૮₍ ˃ ⤙ ˂ ₎ა </strong>
 </div>
