@@ -134,20 +134,10 @@ dev_dependencies:
 
 | Nama | Absen | Role | GitHub |
 |------|-------|------|---------|
-| **Azka El Fachrizy** | 06 | Frontend Developer | [@Azelzy](https://github.com/Azelzy) |
-| **Ihsan H.U** | 17 | Frontend Developer | [@IhsanHU-coder](https://github.com/IhsanHU-coder) |
+| **Azka El Fachrizy** | 06 | UI/UX | [@Azelzy](https://github.com/Azelzy) |
+| **Ihsan H.U** | 17 | Spesialis Controller | [@IhsanHU-coder](https://github.com/IhsanHU-coder) |
 
 ## 🔮 Pengembangan Selanjutnya
-
-### Roadmap
-- [ ] **Persistent Storage** dengan Hive/SharedPreferences
-- [ ] **Due Date** untuk todos
-- [ ] **Search & Filter** functionality
-- [ ] **Dark/Light Theme** toggle
-- [ ] **Data Export** ke JSON/CSV
-- [ ] **Push Notifications** untuk reminder
-- [ ] **Drag & Drop** reordering
-- [ ] **Categories Management** (custom categories)
 
 ### Kontribusi
 1. Fork repository ini
@@ -155,10 +145,6 @@ dev_dependencies:
 3. Commit perubahan (`git commit -m 'Add some AmazingFeature'`)
 4. Push ke branch (`git push origin feature/AmazingFeature`)
 5. Buat Pull Request
-
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
 
 ## 📞 Kontak
 
