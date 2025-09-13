@@ -118,7 +118,7 @@ dev_dependencies:
 3. Atau register akun baru
 
 ### Mengelola Todo
-1. **Tambah Todo**: Tap FAB (+) di halaman Todo List
+1. **Tambah Todo**: Tap (+) pada halaman Todo List
 2. **Edit Todo**: Tap icon edit pada todo item
 3. **Complete Todo**: Swipe kanan pada todo item
 4. **Restore Todo**: Swipe kiri pada completed todo
