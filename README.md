@@ -18,7 +18,7 @@ Sebuah aplikasi Todo List dengan desain **Brutalist** yang dibangun menggunakan 
 - 🏷️ **Kategori**: Work, Personal, Study
 - ⚡ **Tingkat Prioritas**: Low, Normal, High, Urgent
 - 🎨 **Color-coded priority** untuk visual feedback
-- ✔️ **Drag to complete** - swipe kanan untuk menyelesaikan
+- ✔️ **Swipe to complete** - swipe kanan untuk menyelesaikan
 - 🔄 **Restore completed todos** - swipe kiri di history
 
 ### 🎯 Interface & UX
