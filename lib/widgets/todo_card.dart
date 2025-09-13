@@ -68,7 +68,148 @@ class TodoCard extends StatelessWidget {
               scale: 1.2,
               child: Checkbox(
                 value: todo.selesai,
-                onChanged: onChanged,
+                onChanged: (value) {
+                  showDialog(
+                    context: context,
+                    builder: (context) => Dialog(
+                      backgroundColor: Colors.transparent,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(color: Colors.black, width: 4),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Colors.black,
+                              offset: Offset(8, 8),
+                              blurRadius: 0,
+                            ),
+                          ],
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            // Header
+                            Container(
+                              width: double.infinity,
+                              padding: const EdgeInsets.all(20),
+                              color: Colors.black,
+                              child: const Text(
+                                "CONFIRM!",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            // Content
+                            Padding(
+                              padding: const EdgeInsets.all(24),
+                              child: Text(
+                                value == true
+                                    ? "Are you sure you want to mark this as DONE? (っ˘ڡ˘ς)"
+                                    : "Are you sure you want to mark this as NOT DONE YET? (¬⤙¬ )",
+                                style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            // Buttons
+                            Padding(
+                              padding:
+                                  const EdgeInsets.fromLTRB(24, 0, 24, 24),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: Container(
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xFFB45253),
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 3,
+                                        ),
+                                        boxShadow: const [
+                                          BoxShadow(
+                                            color: Colors.black,
+                                            offset: Offset(4, 4),
+                                            blurRadius: 0,
+                                          ),
+                                        ],
+                                      ),
+                                      child: Material(
+                                        color: Colors.transparent,
+                                        child: InkWell(
+                                          onTap: () =>
+                                              Navigator.pop(context),
+                                          child: const Center(
+                                            child: Text(
+                                              "やめて",
+                                              style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(width: 16),
+                                  Expanded(
+                                    child: Container(
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xFF84994F),
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 3,
+                                        ),
+                                        boxShadow: const [
+                                          BoxShadow(
+                                            color: Colors.black,
+                                            offset: Offset(4, 4),
+                                            blurRadius: 0,
+                                          ),
+                                        ],
+                                      ),
+                                      child: Material(
+                                        color: Colors.transparent,
+                                        child: InkWell(
+                                          onTap: () {
+                                            Navigator.pop(context);
+                                            if (onChanged != null) {
+                                              onChanged!(value);
+                                            }
+                                          },
+                                          child: const Center(
+                                            child: Text(
+                                              "はい!",
+                                              style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                },
                 fillColor: WidgetStateProperty.all(Colors.black),
                 checkColor: _getPriorityColor(),
                 shape: RoundedRectangleBorder(
@@ -145,7 +286,7 @@ class TodoCard extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.all(24),
                                   child: const Text(
-                                    "ARE YOU SURE WANT TO DELET TS?(っᗒ︿ᗕς)",
+                                    "ARE YOU SURE WANT TO DELETE THIS?(っᗒ︿ᗕς)",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 16,
@@ -156,7 +297,12 @@ class TodoCard extends StatelessWidget {
                                 ),
                                 // Buttons
                                 Padding(
-                                  padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+                                  padding: const EdgeInsets.fromLTRB(
+                                    24,
+                                    0,
+                                    24,
+                                    24,
+                                  ),
                                   child: Row(
                                     children: [
                                       Expanded(
@@ -164,7 +310,10 @@ class TodoCard extends StatelessWidget {
                                           height: 50,
                                           decoration: BoxDecoration(
                                             color: Color(0xFFB45253),
-                                            border: Border.all(color: Colors.black, width: 3),
+                                            border: Border.all(
+                                              color: Colors.black,
+                                              width: 3,
+                                            ),
                                             boxShadow: const [
                                               BoxShadow(
                                                 color: Colors.black,
@@ -176,7 +325,8 @@ class TodoCard extends StatelessWidget {
                                           child: Material(
                                             color: Colors.transparent,
                                             child: InkWell(
-                                              onTap: () => Navigator.pop(context),
+                                              onTap: () =>
+                                                  Navigator.pop(context),
                                               child: const Center(
                                                 child: Text(
                                                   "やめた!",
@@ -197,7 +347,10 @@ class TodoCard extends StatelessWidget {
                                           height: 50,
                                           decoration: BoxDecoration(
                                             color: Color(0xFF84994F),
-                                            border: Border.all(color: Colors.black, width: 3),
+                                            border: Border.all(
+                                              color: Colors.black,
+                                              width: 3,
+                                            ),
                                             boxShadow: const [
                                               BoxShadow(
                                                 color: Colors.black,
