@@ -27,8 +27,8 @@ class SplashScreen extends StatelessWidget {
                   border: Border.all(color: Colors.black, width: 4),
                 ),
                 child: const Icon(
-                  Icons.calendar_view_day_sharp,
-                  size: 80,
+                  Icons.playlist_add_sharp,
+                  size: 120,
                   color: Colors.black,
                 ),
               ),

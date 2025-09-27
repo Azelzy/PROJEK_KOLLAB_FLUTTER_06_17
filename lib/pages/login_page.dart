@@ -125,7 +125,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 16),
                 BrutalistButton(
-                  text: "REGISTER",
+                  text: "REGISTER(Only 1 session)",
                   onPressed: () => Get.toNamed(AppRoutes.register),
                   backgroundColor: Colors.grey[800]!,
                 ),
