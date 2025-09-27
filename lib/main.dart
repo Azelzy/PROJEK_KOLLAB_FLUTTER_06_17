@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_17_6/Routes/pages.dart';
 import 'package:project_17_6/Routes/routes.dart';
-import 'package:project_17_6/controller/auth_controller.dart';
 import 'package:project_17_6/controller/todo_list_page_controller.dart';
 
 void main() {
+  // Initialize TodoController globally
   Get.put(TodoController());
-  Get.put(AuthController());
   runApp(const MyApp());
 }
 
@@ -56,11 +55,11 @@ class MyApp extends StatelessWidget {
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.zero,
-            borderSide: BorderSide(color: Color(0xFFB45253), width: 3),
+            borderSide: BorderSide(color: Color(0xFFB85A5A), width: 3),
           ),
           focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.zero,
-            borderSide: BorderSide(color: Color(0xFFB45253), width: 3),
+            borderSide: BorderSide(color: Color(0xFFB85A5A), width: 3),
           ),
           contentPadding: EdgeInsets.symmetric(
             horizontal: 16,
@@ -84,7 +83,7 @@ class MyApp extends StatelessWidget {
           margin: EdgeInsets.only(bottom: 16),
         ),
       ),
-      initialRoute: AppRoutes.login,
+      initialRoute: AppRoutes.splash,
       getPages: AppPages.pages,
       debugShowCheckedModeBanner: false,
     );

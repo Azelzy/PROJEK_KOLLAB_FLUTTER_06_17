@@ -5,6 +5,7 @@ import 'package:project_17_6/Routes/routes.dart';
 import 'package:project_17_6/widgets/brutalist_button.dart';
 import 'package:project_17_6/widgets/brutalist_passwordeyebutton.dart';
 import 'package:project_17_6/widgets/brutalist_textfield.dart';
+import 'package:project_17_6/widgets/brutalist_checkbox.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -16,6 +17,24 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final txtUsername = TextEditingController();
   final txtPassword = TextEditingController();
+  var rememberMe = false.obs;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSavedCredentials();
+  }
+
+  Future<void> _loadSavedCredentials() async {
+    final auth = Get.find<AuthController>();
+    final savedData = await auth.getSavedCredentials();
+    
+    if (savedData['remember_me'] == true) {
+      txtUsername.text = savedData['username'] ?? '';
+      txtPassword.text = savedData['password'] ?? '';
+      rememberMe.value = true;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,15 +93,34 @@ class _LoginPageState extends State<LoginPage> {
                   hint: "Enter your password",
                 ),
 
+                const SizedBox(height: 16),
+
+                // Remember Me Checkbox
+                Obx(() => BrutalistCheckbox(
+                  value: rememberMe.value,
+                  onChanged: (value) => rememberMe.value = value ?? false,
+                  label: "REMEMBER ME",
+                )),
+
                 const SizedBox(height: 32),
                 BrutalistButton(
                   text: "LOGIN",
-                  onPressed: () {
+                  onPressed: () async {
                     if (txtUsername.text.isEmpty || txtPassword.text.isEmpty) {
                       auth.showEmptyFieldsError();
                       return;
                     }
-                    auth.login(txtUsername.text, txtPassword.text);
+
+                    bool loginSuccess = auth.login(txtUsername.text, txtPassword.text);
+                    
+                    if (loginSuccess) {
+                      // Save credentials if remember me is checked
+                      await auth.saveCredentials(
+                        txtUsername.text, 
+                        txtPassword.text, 
+                        rememberMe.value
+                      );
+                    }
                   },
                 ),
                 const SizedBox(height: 16),

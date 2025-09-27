@@ -4,6 +4,8 @@ import 'package:project_17_6/bindings/login_page_binding.dart';
 import 'package:project_17_6/bindings/register_page_binding.dart';
 import 'package:project_17_6/bindings/bottom_nav_page_binding.dart';
 import 'package:project_17_6/bindings/todo_list_edit_page.dart';
+import 'package:project_17_6/bindings/splash_screen_binding.dart';
+import 'package:project_17_6/pages/splash_screen.dart';
 import 'package:project_17_6/pages/bottom_nav_page.dart';
 import 'package:project_17_6/pages/login_page.dart';
 import 'package:project_17_6/pages/register_page.dart';
@@ -13,6 +15,11 @@ import 'package:project_17_6/pages/profile_ihsan_page.dart';
 
 class AppPages {
   static final pages = <GetPage>[
+    GetPage(
+      name: AppRoutes.splash,
+      page: () => const SplashScreen(),
+      binding: SplashScreenBinding(),
+    ),
     GetPage(
       name: AppRoutes.login,
       page: () => const LoginPage(),
