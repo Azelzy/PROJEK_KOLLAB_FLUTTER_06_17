@@ -2,8 +2,6 @@ import 'package:get/get.dart';
 import 'package:project_17_6/Routes/routes.dart';
 import 'package:project_17_6/bindings/bottom_nav_page_binding.dart';
 import 'package:project_17_6/pages/bottom_nav_page.dart';
-import 'package:project_17_6/pages/Mobile/login_page_mobile.dart';
-import 'package:project_17_6/pages/Mobile/register_page_mobile.dart';
 import 'package:project_17_6/pages/Mobile/profile_azka_page.dart';
 import 'package:project_17_6/pages/Mobile/profile_ihsan_page.dart';
 import 'package:flutter/material.dart';
