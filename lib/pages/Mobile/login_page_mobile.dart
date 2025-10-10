@@ -7,14 +7,16 @@ import 'package:project_17_6/widgets/brutalist_passwordeyebutton.dart';
 import 'package:project_17_6/widgets/brutalist_textfield.dart';
 import 'package:project_17_6/widgets/brutalist_checkbox.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class LoginPageMobile extends StatefulWidget {
+  LoginPageMobile({super.key});
+
+  final AuthController controller = Get.put(AuthController());
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<LoginPageMobile> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<LoginPageMobile> {
   final txtUsername = TextEditingController();
   final txtPassword = TextEditingController();
   var rememberMe = false.obs;

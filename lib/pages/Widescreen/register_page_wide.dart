@@ -5,14 +5,14 @@ import 'package:project_17_6/controller/auth_controller.dart';
 import 'package:project_17_6/widgets/brutalist_button.dart';
 import 'package:project_17_6/widgets/brutalist_textfield.dart';
 
-class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+class RegisterPageWide extends StatefulWidget {
+  const RegisterPageWide({super.key});
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State<RegisterPageWide> createState() => _RegisterPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _RegisterPageState extends State<RegisterPageWide> {
   final txtUsername = TextEditingController();
   final txtPassword = TextEditingController();
 
@@ -22,11 +22,6 @@ class _RegisterPageState extends State<RegisterPage> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: const Text("REGISTER"),
-        backgroundColor: Colors.black,
-        foregroundColor: Colors.white,
-      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(24.0),
@@ -35,6 +30,28 @@ class _RegisterPageState extends State<RegisterPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 40),
+
+                // Logo Title Box
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    border: Border.all(color: Colors.black, width: 4),
+                  ),
+                  child: const Text(
+                    "PROJEKT\n6_17",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 28,
+                      fontWeight: FontWeight.w900,
+                      height: 1.0,
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 40),
+
+                // === KEEP ORIGINAL "CREATE an ACCOUNT!" TEXT ===
                 const Text(
                   "CREATE\nan ACCOUNT!",
                   style: TextStyle(
@@ -44,20 +61,42 @@ class _RegisterPageState extends State<RegisterPage> {
                     height: 1.0,
                   ),
                 ),
-                const SizedBox(height: 40),
+
+                const SizedBox(height: 8),
+
+                // Japanese version (optional subtitle)
+                const Text(
+                  "新しいアカウントを作ろう!",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black87,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+
+                const SizedBox(height: 32),
+
+                // USERNAME field
                 BrutalistTextField(
                   controller: txtUsername,
                   label: "USERNAME",
                   hint: "Enter username",
                 ),
+
                 const SizedBox(height: 16),
+
+                // PASSWORD field
                 BrutalistTextField(
                   controller: txtPassword,
                   label: "PASSWORD",
                   hint: "Enter password",
                   obscureText: true,
                 ),
+
                 const SizedBox(height: 32),
+
+                // CREATE ACCOUNT button
                 BrutalistButton(
                   text: "CREATE ACCOUNT",
                   onPressed: () {
@@ -72,11 +111,18 @@ class _RegisterPageState extends State<RegisterPage> {
                     );
 
                     if (success) {
-                      // If registration successful, go to login
                       Get.offNamed(AppRoutes.login);
                     }
-                    // If failed (username already exists), stay on RegisterPage
                   },
+                ),
+
+                const SizedBox(height: 16),
+
+                // BACK TO LOGIN button
+                BrutalistButton(
+                  text: "BACK TO LOGIN",
+                  onPressed: () => Get.offNamed(AppRoutes.login),
+                  backgroundColor: Colors.grey[800]!,
                 ),
               ],
             ),

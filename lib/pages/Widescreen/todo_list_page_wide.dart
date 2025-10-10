@@ -5,13 +5,13 @@ import 'package:project_17_6/Routes/routes.dart';
 import 'package:project_17_6/widgets/todo_card.dart';
 import 'package:project_17_6/widgets/brutalist_drawer.dart';
 
-class TodoListPage extends StatelessWidget {
-  const TodoListPage({super.key});
+class TodoListPageWide extends StatelessWidget {
+  const TodoListPageWide({super.key});
 
   @override
   Widget build(BuildContext context) {
     final todoController = Get.find<TodoController>();
-
+    
     return Scaffold(
       backgroundColor: Colors.white,
       drawer: const BrutalistDrawer(),

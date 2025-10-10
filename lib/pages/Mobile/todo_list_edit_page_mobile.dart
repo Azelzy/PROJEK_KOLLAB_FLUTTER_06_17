@@ -5,8 +5,8 @@ import 'package:project_17_6/widgets/brutalist_button.dart';
 import 'package:project_17_6/widgets/brutalist_textfield.dart';
 import 'package:project_17_6/widgets/brutalist_dropdown.dart';
 
-class TodoListEditPage extends StatelessWidget {
-  const TodoListEditPage({super.key});
+class TodoListEditPageMobile extends StatelessWidget {
+  const TodoListEditPageMobile({super.key});
 
   @override
   Widget build(BuildContext context) {

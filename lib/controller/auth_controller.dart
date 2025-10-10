@@ -4,6 +4,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:project_17_6/Routes/routes.dart';
 
 class AuthController extends GetxController {
+  var isMobile = true.obs;
+
+  void updateLayout(BoxConstraints constraints){
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+    isMobile.value = constraints.maxWidth < 600;
+  });//640
+    
+  }
+
   var isLoggedIn = false.obs;
   var users = <Map<String, String>>[].obs;
 

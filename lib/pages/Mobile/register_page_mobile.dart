@@ -1,0 +1,95 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:project_17_6/Routes/routes.dart';
+import 'package:project_17_6/controller/auth_controller.dart';
+import 'package:project_17_6/widgets/brutalist_button.dart';
+import 'package:project_17_6/widgets/brutalist_textfield.dart';
+
+class RegisterPageMobile extends StatefulWidget {
+  const RegisterPageMobile({super.key});
+
+  @override
+  State<RegisterPageMobile> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPageMobile> {
+  final txtUsername = TextEditingController();
+  final txtPassword = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    final auth = Get.find<AuthController>();
+
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: const Text("REGISTER"),
+        backgroundColor: Colors.black,
+        foregroundColor: Colors.white,
+      ),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 40),
+                const Text(
+                  "CREATE\nan ACCOUNT!",
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.black,
+                    height: 1.0,
+                  ),
+                ),
+                const SizedBox(height: 40),
+                BrutalistTextField(
+                  controller: txtUsername,
+                  label: "USERNAME",
+                  hint: "Enter username",
+                ),
+                const SizedBox(height: 16),
+                BrutalistTextField(
+                  controller: txtPassword,
+                  label: "PASSWORD",
+                  hint: "Enter password",
+                  obscureText: true,
+                ),
+                const SizedBox(height: 32),
+                BrutalistButton(
+                  text: "CREATE ACCOUNT",
+                  onPressed: () {
+                    if (txtUsername.text.isEmpty || txtPassword.text.isEmpty) {
+                      auth.showEmptyFieldsError();
+                      return;
+                    }
+
+                    bool success = auth.register(
+                      txtUsername.text,
+                      txtPassword.text,
+                    );
+
+                    if (success) {
+                      // If registration successful, go to login
+                      Get.offNamed(AppRoutes.login);
+                    }
+                    // If failed (username already exists), stay on RegisterPage
+                  },
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    txtUsername.dispose();
+    txtPassword.dispose();
+    super.dispose();
+  }
+}

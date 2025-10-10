@@ -11,7 +11,7 @@ class BrutalistDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final auth = Get.find<AuthController>();
+    final AuthController auth = Get.find<AuthController>();
 
     return Drawer(
       backgroundColor: Colors.white,

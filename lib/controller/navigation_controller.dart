@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:project_17_6/pages/todo_list_page.dart';
-import 'package:project_17_6/pages/history_page.dart';
+import 'package:project_17_6/pages/Mobile/todo_list_page_mobile.dart';
+import 'package:project_17_6/pages/Mobile/history_page.dart';
 
-class NavigationController extends GetxController {
+class NavigationController extends GetxController { 
   var currentIndex = 0.obs;
 
-  final pages = [const TodoListPage(), const HistoryPage()];
+  final pages = [const TodoListPageMobile(), const HistoryPage()];
 
   Widget get currentPage => pages[currentIndex.value];
 
