@@ -7,6 +7,7 @@ import 'package:project_17_6/pages/Mobile/profile_ihsan_page.dart';
 import 'package:flutter/material.dart';
 import 'package:project_17_6/pages/responsive_login_page.dart';
 import 'package:project_17_6/pages/responsive_register_page.dart';
+import 'package:project_17_6/pages/responsive_todo_list_edit_page.dart';
 
 class AppPages {
   static final pages = <GetPage>[
@@ -27,7 +28,7 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.todoEdit,
-      page: () => const TodoEditPage(),
+      page: () => ResponsiveTodoListEditPage(),
       binding: BottomNavPageBinding(),
     ),
     GetPage(

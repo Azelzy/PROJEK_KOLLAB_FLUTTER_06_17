@@ -11,62 +11,89 @@ class TodoListPageWide extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final todoController = Get.find<TodoController>();
-    
+
     return Scaffold(
       backgroundColor: Colors.white,
       drawer: const BrutalistDrawer(),
       appBar: AppBar(
-        title: const Text("TODO LIST"),
+        title: const Text(
+          "TODO LIST",
+          style: TextStyle(
+            fontWeight: FontWeight.w900,
+            letterSpacing: 1.5,
+          ),
+        ),
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
+        elevation: 0,
       ),
-      body: Obx(() {
-        final activeList = todoController.activeList;
-        if (activeList.isEmpty) {
-          return const Center(
-            child: Text(
-              "NO TASKS YET◝(ᵔᗜᵔ)◜",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w900,
-                color: Colors.grey,
-              ),
-            ),
-          );
-        }
-
-        return ListView.builder(
+      body: SafeArea(
+        child: Padding(
           padding: const EdgeInsets.all(16),
-          itemCount: activeList.length,
-          itemBuilder: (context, index) {
-            final todo = activeList[index];
-            return Dismissible(
-              key: Key(todo.id),
-              direction: DismissDirection.startToEnd,
-              onDismissed: (_) {
-                todoController.toggleComplete(todo.id, true);
+          child: Obx(() {
+            final activeList = todoController.activeList;
+
+            if (activeList.isEmpty) {
+              return const Center(
+                child: Text(
+                  "NO TASKS YET◝(ᵔᗜᵔ)◜",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.grey,
+                  ),
+                ),
+              );
+            }
+
+            // Grid layout agar tampilan lebih bervariasi
+            return LayoutBuilder(
+              builder: (context, constraints) {
+                bool isWide = constraints.maxWidth > 500;
+
+                return GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: isWide ? 2 : 1,
+                    crossAxisSpacing: 16,
+                    mainAxisSpacing: 16,
+                    childAspectRatio: isWide ? 2.8 : 3.2,
+                  ),
+                  itemCount: activeList.length,
+                  itemBuilder: (context, index) {
+                    final todo = activeList[index];
+
+                    return Dismissible(
+                      key: Key(todo.id),
+                      direction: DismissDirection.startToEnd,
+                      onDismissed: (_) {
+                        todoController.toggleComplete(todo.id, true);
+                      },
+                      background: Container(
+                        color: Colors.green,
+                        alignment: Alignment.centerLeft,
+                        padding: const EdgeInsets.only(left: 20),
+                        child: const Icon(Icons.check, color: Colors.white),
+                      ),
+                      child: TodoCard(
+                        todo: todo,
+                        onChanged: (value) => todoController.toggleComplete(
+                            todo.id, value ?? false),
+                        onEdit: () =>
+                            Get.toNamed(AppRoutes.todoListEdit, arguments: todo.id),
+                        isHistoryPage: false,
+                      ),
+                    );
+                  },
+                );
               },
-              background: Container(
-                color: Colors.green,
-                alignment: Alignment.centerLeft,
-                padding: const EdgeInsets.only(left: 20),
-                child: const Icon(Icons.check, color: Colors.white),
-              ),
-              child: TodoCard(
-                todo: todo,
-                onChanged: (value) =>
-                    todoController.toggleComplete(todo.id, value ?? false),
-                onEdit: () => Get.toNamed(AppRoutes.todoListEdit, arguments: todo.id),
-                isHistoryPage: false,
-              ),
             );
-          },
-        );
-      }),
+          }),
+        ),
+      ),
       floatingActionButton: Container(
         decoration: BoxDecoration(
           color: Colors.black,
-          border: Border.all(color: Colors.black, width: 3),
+          border: Border.all(color: Colors.black, width: 4),
           boxShadow: const [
             BoxShadow(color: Colors.grey, offset: Offset(4, 4), blurRadius: 0),
           ],
