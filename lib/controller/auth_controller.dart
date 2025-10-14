@@ -6,11 +6,10 @@ import 'package:project_17_6/Routes/routes.dart';
 class AuthController extends GetxController {
   var isMobile = true.obs;
 
-  void updateLayout(BoxConstraints constraints){
+  void updateLayout(BoxConstraints constraints) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-    isMobile.value = constraints.maxWidth < 600;
-  });//640
-    
+      isMobile.value = constraints.maxWidth < 600;
+    }); //640
   }
 
   var isLoggedIn = false.obs;
@@ -134,10 +133,10 @@ class AuthController extends GetxController {
 
   void logout() async {
     isLoggedIn.value = false;
-    
+
     // Clear saved credentials when logging out
     await clearSavedCredentials();
-    
+
     Get.offAllNamed(AppRoutes.login);
     Get.snackbar(
       "LOGOUT",
@@ -181,7 +180,11 @@ class AuthController extends GetxController {
   }
 
   // SharedPreferences methods
-  Future<void> saveCredentials(String username, String password, bool rememberMe) async {
+  Future<void> saveCredentials(
+    String username,
+    String password,
+    bool rememberMe,
+  ) async {
     final prefs = await SharedPreferences.getInstance();
     if (rememberMe) {
       await prefs.setString('saved_username', username);
