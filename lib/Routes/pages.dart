@@ -1,8 +1,7 @@
 import 'package:get/get.dart';
 import 'package:project_17_6/Routes/routes.dart';
-import 'package:project_17_6/bindings/login_page_binding.dart';
-import 'package:project_17_6/bindings/register_page_binding.dart';
 import 'package:project_17_6/bindings/bottom_nav_page_binding.dart';
+import 'package:project_17_6/bindings/responsive_binding.dart';
 import 'package:project_17_6/bindings/todo_list_edit_page.dart';
 import 'package:project_17_6/bindings/splash_screen_binding.dart';
 import 'package:project_17_6/pages/responsive_login_page.dart';
@@ -24,12 +23,12 @@ class AppPages {
     GetPage(
       name: AppRoutes.login,
       page: () => ResponsiveLoginPage(),
-      binding: LoginPageBinding(),
+      binding: ResponsiveBinding(),
     ),
     GetPage(
       name: AppRoutes.register,
       page: () => ResponsiveRegisterPage(),
-      binding: RegisterPageBinding(),
+      binding: ResponsiveBinding(),
     ),
     GetPage(
       name: AppRoutes.base,
