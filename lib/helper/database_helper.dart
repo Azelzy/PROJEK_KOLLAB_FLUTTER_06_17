@@ -18,13 +18,10 @@ class DatabaseHelper {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, filePath);
 
-    return await openDatabase(
-      path,
-      version: 1,
-      onCreate: _createDB,
-    );
+    return await openDatabase(path, version: 1, onCreate: _createDB);
   }
 
+  //TABEL TODOS
   Future<void> _createDB(Database db, int version) async {
     await db.execute('''
       CREATE TABLE todos (
@@ -59,12 +56,8 @@ class DatabaseHelper {
   // READ - Ambil todo by ID
   Future<Todo?> getTodoById(String id) async {
     final db = await database;
-    final result = await db.query(
-      'todos',
-      where: 'id = ?',
-      whereArgs: [id],
-    );
-    
+    final result = await db.query('todos', where: 'id = ?', whereArgs: [id]);
+
     if (result.isNotEmpty) {
       return Todo.fromMap(result.first);
     }
@@ -120,11 +113,7 @@ class DatabaseHelper {
   // DELETE - Hapus Todo
   Future<int> deleteTodo(String id) async {
     final db = await database;
-    return await db.delete(
-      'todos',
-      where: 'id = ?',
-      whereArgs: [id],
-    );
+    return await db.delete('todos', where: 'id = ?', whereArgs: [id]);
   }
 
   // DELETE - Hapus semua Todos (optional, untuk testing)
