@@ -15,10 +15,12 @@ dependencies:
   loading_animation_widget:
   
   # SharedPreferences
-  shared_preferences: ^2.5.3
+  shared_preferences: ^2.2.2
   # Utility & Core
-  uuid: ^4.5.1
+  uuid: ^4.3.3
   intl: ^0.20.2
+  sqflite: ^2.3.0
+  path : ^1.8.3
 
   # UI/Animations
   animations: ^2.0.11

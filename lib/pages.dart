@@ -2,22 +2,23 @@ import 'package:get/get.dart';
 import 'package:project_17_6/Routes/routes.dart';
 import 'package:project_17_6/bindings/bottom_nav_page_binding.dart';
 import 'package:project_17_6/pages/bottom_nav_page.dart';
-import 'package:project_17_6/pages/login_page.dart';
-import 'package:project_17_6/pages/register_page.dart';
-import 'package:project_17_6/pages/profile_azka_page.dart';
-import 'package:project_17_6/pages/profile_ihsan_page.dart';
 import 'package:flutter/material.dart';
+import 'package:project_17_6/pages/responsive_login_page.dart';
+import 'package:project_17_6/pages/responsive_profile_azka_page.dart';
+import 'package:project_17_6/pages/responsive_profile_ihsan_page.dart';
+import 'package:project_17_6/pages/responsive_register_page.dart';
+import 'package:project_17_6/pages/responsive_todo_list_edit_page.dart';
 
 class AppPages {
   static final pages = <GetPage>[
     GetPage(
       name: AppRoutes.login,
-      page: () => const LoginPage(),
+      page: () =>  ResponsiveLoginPage(),
       binding: BottomNavPageBinding(),
     ),
     GetPage(
       name: AppRoutes.register,
-      page: () => const RegisterPage(),
+      page: () => ResponsiveRegisterPage(),
       binding: BottomNavPageBinding(),
     ),
     GetPage(
@@ -27,17 +28,17 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.todoEdit,
-      page: () => const TodoEditPage(),
+      page: () => ResponsiveTodoListEditPage(),
       binding: BottomNavPageBinding(),
     ),
     GetPage(
       name: AppRoutes.profileAzka,
-      page: () => const ProfileAzkaPage(),
+      page: () => ResponsiveProfileAzkaPage(),
       binding: BottomNavPageBinding(),
     ),
     GetPage(
       name: AppRoutes.profileIhsan,
-      page: () => const ProfileIhsanPage(),
+      page: () => ResponsiveProfileIhsanPage(),
       binding: BottomNavPageBinding(),
     ),
   ];

@@ -11,30 +11,32 @@ class BrutalistDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final auth = Get.find<AuthController>();
+    final AuthController auth = Get.find<AuthController>();
 
     return Drawer(
       backgroundColor: Colors.white,
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
       child: Column(
         children: [
+          // HEADER
           Container(
             width: double.infinity,
-            padding: const EdgeInsets.all(24),
+            padding: const EdgeInsets.all(30),
             color: Colors.black,
-            child: const SafeArea(
-              child: Text(
-                "GROUP MEMBERS",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+            child: const Text(
+              "GROUP MEMBERS",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),
+
+          // BODY
           Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(16),
               child: Column(
                 children: [
                   BrutalistButton(
@@ -50,15 +52,22 @@ class BrutalistDrawer extends StatelessWidget {
                     onPressed: () => Get.toNamed(AppRoutes.profileIhsan),
                     backgroundColor: const Color(0xFF0BA6DF),
                   ),
-                  const Spacer(),
+
+                  const SizedBox(height: 48),
+
+                  // Tombol Logout
                   BrutalistButton(
                     text: "LOGOUT",
                     backgroundColor: Colors.red,
                     onPressed: () {
                       showDialog(
                         context: context,
+                        barrierColor: Colors.black.withOpacity(0.4), // opsional
                         builder: (BuildContext context) {
                           return Dialog(
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.zero,
+                            ),
                             backgroundColor: Colors.transparent,
                             child: Container(
                               decoration: BoxDecoration(
@@ -94,9 +103,9 @@ class BrutalistDrawer extends StatelessWidget {
                                     ),
                                   ),
                                   // Content
-                                  Padding(
-                                    padding: const EdgeInsets.all(24),
-                                    child: const Text(
+                                  const Padding(
+                                    padding: EdgeInsets.all(24),
+                                    child: Text(
                                       "ARE YOU SURE WANT TO LOGOUT TWIN? ૮(˶╥︿╥)ა",
                                       style: TextStyle(
                                         color: Colors.black,
@@ -117,84 +126,21 @@ class BrutalistDrawer extends StatelessWidget {
                                     child: Row(
                                       children: [
                                         Expanded(
-                                          child: Container(
-                                            height: 50,
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFFB45253),
-                                              border: Border.all(
-                                                color: Colors.black,
-                                                width: 3,
-                                              ),
-                                              boxShadow: const [
-                                                BoxShadow(
-                                                  color: Colors.black,
-                                                  offset: Offset(4, 4),
-                                                  blurRadius: 0,
-                                                ),
-                                              ],
-                                            ),
-                                            child: Material(
-                                              color: Colors.transparent,
-                                              child: InkWell(
-                                                onTap: () {
-                                                  Navigator.of(
-                                                    context,
-                                                  ).pop(false);
-                                                },
-                                                child: const Center(
-                                                  child: Text(
-                                                    "やめた!",
-                                                    style: TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 16,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
+                                          child: _DialogButton(
+                                            text: "やめた!",
+                                            color: const Color(0xFFB45253),
+                                            onTap: () => Navigator.of(
+                                              context,
+                                            ).pop(false),
                                           ),
                                         ),
                                         const SizedBox(width: 16),
                                         Expanded(
-                                          child: Container(
-                                            height: 50,
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFF84994F),
-                                              border: Border.all(
-                                                color: Colors.black,
-                                                width: 3,
-                                              ),
-                                              boxShadow: const [
-                                                BoxShadow(
-                                                  color: Colors.black,
-                                                  offset: Offset(4, 4),
-                                                  blurRadius: 0,
-                                                ),
-                                              ],
-                                            ),
-                                            child: Material(
-                                              color: Colors.transparent,
-                                              child: InkWell(
-                                                onTap: () {
-                                                  Navigator.of(
-                                                    context,
-                                                  ).pop(true);
-                                                },
-                                                child: const Center(
-                                                  child: Text(
-                                                    "はい!",
-                                                    style: TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 16,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
+                                          child: _DialogButton(
+                                            text: "はい!",
+                                            color: const Color(0xFF84994F),
+                                            onTap: () =>
+                                                Navigator.of(context).pop(true),
                                           ),
                                         ),
                                       ],
@@ -221,6 +167,51 @@ class BrutalistDrawer extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+// Tombol dalam dialog (tanpa sudut)
+class _DialogButton extends StatelessWidget {
+  final String text;
+  final Color color;
+  final VoidCallback onTap;
+
+  const _DialogButton({
+    required this.text,
+    required this.color,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50,
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.zero,
+        border: Border.all(color: Colors.black, width: 3),
+        boxShadow: const [
+          BoxShadow(color: Colors.black, offset: Offset(4, 4), blurRadius: 0),
+        ],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.zero,
+          onTap: onTap,
+          child: Center(
+            child: Text(
+              text,
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

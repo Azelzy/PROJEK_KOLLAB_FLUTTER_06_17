@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:project_17_6/widgets/brutalist_button.dart';
 
-class ProfileIhsanPage extends StatelessWidget {
-  const ProfileIhsanPage({super.key});
+class ProfileIhsanPageMobile extends StatelessWidget {
+  const ProfileIhsanPageMobile({super.key});
 
   Widget _buildInfoBox(String label, String value) {
     return Container(

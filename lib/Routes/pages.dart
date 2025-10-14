@@ -1,17 +1,17 @@
 import 'package:get/get.dart';
 import 'package:project_17_6/Routes/routes.dart';
-import 'package:project_17_6/bindings/login_page_binding.dart';
-import 'package:project_17_6/bindings/register_page_binding.dart';
 import 'package:project_17_6/bindings/bottom_nav_page_binding.dart';
+import 'package:project_17_6/bindings/responsive_binding.dart';
 import 'package:project_17_6/bindings/todo_list_edit_page.dart';
 import 'package:project_17_6/bindings/splash_screen_binding.dart';
+import 'package:project_17_6/pages/responsive_login_page.dart';
+import 'package:project_17_6/pages/responsive_profile_azka_page.dart';
+import 'package:project_17_6/pages/responsive_profile_ihsan_page.dart';
+import 'package:project_17_6/pages/responsive_register_page.dart';
+import 'package:project_17_6/pages/responsive_todo_list_edit_page.dart';
 import 'package:project_17_6/pages/splash_screen.dart';
 import 'package:project_17_6/pages/bottom_nav_page.dart';
-import 'package:project_17_6/pages/login_page.dart';
-import 'package:project_17_6/pages/register_page.dart';
-import 'package:project_17_6/pages/todo_list_edit_page.dart';
-import 'package:project_17_6/pages/profile_azka_page.dart';
-import 'package:project_17_6/pages/profile_ihsan_page.dart';
+
 
 class AppPages {
   static final pages = <GetPage>[
@@ -22,13 +22,13 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.login,
-      page: () => const LoginPage(),
-      binding: LoginPageBinding(),
+      page: () => ResponsiveLoginPage(),
+      binding: ResponsiveBinding(),
     ),
     GetPage(
       name: AppRoutes.register,
-      page: () => const RegisterPage(),
-      binding: RegisterPageBinding(),
+      page: () => ResponsiveRegisterPage(),
+      binding: ResponsiveBinding(),
     ),
     GetPage(
       name: AppRoutes.base,
@@ -37,16 +37,16 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.todoListEdit,
-      page: () => const TodoListEditPage(),
+      page: () => ResponsiveTodoListEditPage(),
       binding: TodoListEditPageBinding(),
     ),
     GetPage(
       name: AppRoutes.profileAzka,
-      page: () => const ProfileAzkaPage(),
+      page: () => ResponsiveProfileAzkaPage(),
     ),
     GetPage(
       name: AppRoutes.profileIhsan,
-      page: () => const ProfileIhsanPage(),
+      page: () => ResponsiveProfileIhsanPage (),
     ),
   ];
 }

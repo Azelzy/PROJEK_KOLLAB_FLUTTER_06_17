@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_17_6/Routes/pages.dart';
 import 'package:project_17_6/Routes/routes.dart';
+import 'package:project_17_6/controller/auth_controller.dart';
 import 'package:project_17_6/controller/todo_list_page_controller.dart';
 
 void main() {
   // Initialize TodoController globally
   Get.put(TodoController());
+  Get.put(AuthController());
   runApp(const MyApp());
 }
 
