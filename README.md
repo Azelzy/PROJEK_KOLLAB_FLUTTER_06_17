@@ -141,6 +141,9 @@ dependencies:
   sqflite: ^2.3.0               # SQLite database
   path: ^1.8.3                   # Path manipulation
   shared_preferences: ^2.2.2     # Local storage for credentials
+  animations: ^2.0.11
+  flutter_staggered_animations: ^1.1.1
+  cupertino_icons: ^1.0.8
 
 dev_dependencies:
   flutter_test:
